@@ -1,6 +1,16 @@
+'use client';
+
+import { FormEvent, useState } from 'react';
 import Link from 'next/link';
 
 export default function DemoPage() {
+  const [sent, setSent] = useState(false);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSent(true);
+  }
+
   return (
     <main className="site inner-page" id="top">
       <header className="header">
@@ -14,14 +24,22 @@ export default function DemoPage() {
         <p className="hero-lead">Заявете демонстрация и ще покажем как FactoryMind може да свърже симптоми, сигнали, документация и експертно знание в един проследим диагностичен процес.</p>
         <div className="form-panel">
           <div className="panel-header"><span>DEMO INTAKE</span><span>01 / 03</span></div>
-          <form className="demo-form">
-            <label>Име и фамилия<input name="name" placeholder="Вашето име" required /></label>
-            <label>Работен имейл<input type="email" name="email" placeholder="name@company.com" required /></label>
-            <label>Компания<input name="company" placeholder="Име на компанията" /></label>
-            <label>Какво искате да подобрите?<textarea name="message" placeholder="Напр. диагностика на PLC, престои, знания на техниците..." rows={4} /></label>
-            <button className="button" type="submit">Изпрати запитване <span>↗</span></button>
-          </form>
-          <p className="form-note">Това е подготвена демонстрационна форма. Свързването с реален имейл/CRM ще бъде добавено на следващ етап.</p>
+          {sent ? (
+            <div className="app-status">
+              <strong>Запитването е подготвено.</strong>
+              <p>Това е демонстрационен режим. След свързване на реален имейл или CRM данните ще бъдат изпращани към избрания канал.</p>
+              <button className="button" type="button" onClick={() => setSent(false)}>Ново запитване <span>↗</span></button>
+            </div>
+          ) : (
+            <form className="demo-form" onSubmit={handleSubmit}>
+              <label>Име и фамилия<input name="name" placeholder="Вашето име" required /></label>
+              <label>Работен имейл<input type="email" name="email" placeholder="name@company.com" required /></label>
+              <label>Компания<input name="company" placeholder="Име на компанията" /></label>
+              <label>Какво искате да подобрите?<textarea name="message" placeholder="Напр. диагностика на PLC, престои, знания на техниците..." rows={4} /></label>
+              <button className="button" type="submit">Изпрати запитване <span>↗</span></button>
+            </form>
+          )}
+          <p className="form-note">Демонстрационен режим — не се изпращат реални данни към сървър.</p>
         </div>
       </section>
     </main>
