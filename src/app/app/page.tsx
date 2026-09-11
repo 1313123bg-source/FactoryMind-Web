@@ -1,6 +1,16 @@
+'use client';
+
+import { FormEvent, useState } from 'react';
 import Link from 'next/link';
 
 export default function AppPage() {
+  const [attempted, setAttempted] = useState(false);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setAttempted(true);
+  }
+
   return (
     <main className="site inner-page" id="top">
       <header className="header">
@@ -14,12 +24,20 @@ export default function AppPage() {
         <p className="hero-lead">Тук ще бъде входът към реалното приложение FactoryMind — диагностика, фабричен контекст, роли, история и проследими решения.</p>
         <div className="form-panel">
           <div className="panel-header"><span>SECURE WORKSPACE</span><span>AUTH / 01</span></div>
-          <form className="demo-form">
-            <label>Работен имейл<input type="email" name="email" placeholder="name@company.com" required /></label>
-            <label>Парола<input type="password" name="password" placeholder="••••••••" required /></label>
-            <button className="button" type="submit">Вход в приложението <span>↗</span></button>
-          </form>
-          <p className="form-note">Приложението все още е в процес на изграждане. Тази страница подготвя бъдещия вход и не изпраща данни към сървър.</p>
+          {attempted ? (
+            <div className="app-status">
+              <strong>Демо режимът е активен.</strong>
+              <p>Реалната автентикация ще бъде свързана при изграждането на приложението. В момента няма изпращане или съхранение на данни.</p>
+              <button className="button" type="button" onClick={() => setAttempted(false)}>Обратно към входа <span>↗</span></button>
+            </div>
+          ) : (
+            <form className="demo-form" onSubmit={handleSubmit}>
+              <label>Работен имейл<input type="email" name="email" placeholder="name@company.com" required /></label>
+              <label>Парола<input type="password" name="password" placeholder="••••••••" required /></label>
+              <button className="button" type="submit">Вход в приложението <span>↗</span></button>
+            </form>
+          )}
+          <p className="form-note">Демонстрационен режим — не се изпращат реални данни към сървър.</p>
           <Link className="text-link" href="/demo">Нямате достъп? Заявете демонстрация →</Link>
         </div>
       </section>
