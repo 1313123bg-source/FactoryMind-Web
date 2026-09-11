@@ -70,7 +70,7 @@ export default function HomePage() {
       </section>
 
       <section className="section product-section" id="app">
-        <div className="product-copy"><div className="eyebrow">04 / ПРИЛОЖЕНИЕ</div><h2>Повече от софтуер.<br />Интелигентен слой<br />между хората и машините.</h2><p>Публичният сайт представя идеята и системата. Самото приложение FactoryMind остава в отделната продуктова среда — с диагностика, процеси, роли и фабричен контекст.</p><a className="button" href="#top">Върни се в началото ↑</a></div>
+        <div className="product-copy"><div className="eyebrow">04 / ПРИЛОЖЕНИЕ</div><h2>Повече от софтуер.<br />Интелигентен слой<br />между хората и машините.</h2><p>Публичният сайт представя идеята и системата. Самото приложение FactoryMind остава в отделната продуктова среда — с диагностика, процеси, роли и фабричен контекст.</p><div className="hero-actions"><a className="button" href="/demo">Заяви демонстрация <span>↗</span></a><a className="text-link" href="/app">Вход в приложението <span>↗</span></a></div></div>
         <div className="product-panel"><div className="panel-header"><span>DIAGNOSTIC WORKSPACE</span><span>LIVE PREVIEW</span></div><div className="panel-row"><span>Current symptom</span><strong>Unexpected machine stop</strong></div><div className="panel-row"><span>Context confidence</span><strong className="accent-text">87.4%</strong></div><div className="panel-row"><span>Next best check</span><strong>Sensor signal integrity</strong></div><div className="panel-footer">Evidence-led workflow <span>●</span></div></div>
       </section>
 
