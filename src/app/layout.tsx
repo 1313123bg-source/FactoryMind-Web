@@ -13,11 +13,21 @@ export const metadata: Metadata = {
     'PLC diagnostics',
     'машинна диагностика',
   ],
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: 'FactoryMind — Intelligence for Industrial Systems',
     description:
       'Интелигентният слой между хората, машините и знанията.',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FactoryMind — Intelligence for Industrial Systems',
+    description:
+      'Интелигентният слой между хората, машините и знанията.',
   },
 };
 
