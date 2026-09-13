@@ -32,10 +32,10 @@ export default function DemoPage() {
             </div>
           ) : (
             <form className="demo-form" onSubmit={handleSubmit}>
-              <label>Име и фамилия<input name="name" placeholder="Вашето име" required /></label>
-              <label>Работен имейл<input type="email" name="email" placeholder="name@company.com" required /></label>
-              <label>Компания<input name="company" placeholder="Име на компанията" /></label>
-              <label>Какво искате да подобрите?<textarea name="message" placeholder="Напр. диагностика на PLC, престои, знания на техниците..." rows={4} /></label>
+              <label htmlFor="demo-name">Име и фамилия<input id="demo-name" name="name" autoComplete="name" placeholder="Вашето име" required /></label>
+              <label htmlFor="demo-email">Работен имейл<input id="demo-email" type="email" name="email" autoComplete="email" placeholder="name@company.com" required /></label>
+              <label htmlFor="demo-company">Компания<input id="demo-company" name="company" autoComplete="organization" placeholder="Име на компанията" /></label>
+              <label htmlFor="demo-message">Какво искате да подобрите?<textarea id="demo-message" name="message" placeholder="Напр. диагностика на PLC, престои, знания на техниците..." rows={4} /></label>
               <button className="button" type="submit">Изпрати запитване <span>↗</span></button>
             </form>
           )}
