@@ -39,7 +39,7 @@ export default function HomePage() {
           </div>
           <div className="hero-meta"><span>Машини</span><i /> <span>Процеси</span><i /> <span>Знания</span><i /> <span>Хора</span></div>
         </div>
-        <div className="hero-visual" aria-label="Илюстрация на интелигентна фабрична система">
+        <div className="hero-visual" role="img" aria-label="Илюстрация на интелигентна фабрична система">
           <div className="visual-top"><span>FACTORYMIND / CORE</span><span className="live">● SYSTEM ONLINE</span></div>
           <div className="network">
             <div className="network-line line-a" /><div className="network-line line-b" /><div className="network-line line-c" />
