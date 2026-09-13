@@ -14,18 +14,31 @@ const steps = [
   ['04', 'Докажи причината', 'Резултатът се превръща в знание, което остава за екипа.'],
 ];
 
+const navigation = [
+  ['#system', 'Система'],
+  ['#how', 'Как работи'],
+  ['#capabilities', 'Възможности'],
+  ['#app', 'Приложението'],
+];
+
 export default function HomePage() {
   return (
     <main className="site" id="top">
       <header className="header">
         <a className="brand" href="#top">Factory<span>Mind</span></a>
         <nav className="nav" aria-label="Основна навигация">
-          <a href="#system">Система</a>
-          <a href="#how">Как работи</a>
-          <a href="#capabilities">Възможности</a>
-          <a href="#app">Приложението</a>
+          {navigation.map(([href, label]) => <a href={href} key={href}>{label}</a>)}
         </nav>
-        <a className="header-cta" href="#app">Виж платформата ↗</a>
+        <div className="header-actions">
+          <a className="header-cta" href="#app">Виж платформата ↗</a>
+          <details className="mobile-menu">
+            <summary aria-label="Отвори меню">Меню</summary>
+            <nav aria-label="Мобилна навигация">
+              {navigation.map(([href, label]) => <a href={href} key={href}>{label}</a>)}
+              <a className="mobile-menu-cta" href="#app">Виж платформата ↗</a>
+            </nav>
+          </details>
+        </div>
       </header>
 
       <section className="hero">
