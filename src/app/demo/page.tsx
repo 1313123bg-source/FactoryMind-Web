@@ -25,7 +25,7 @@ export default function DemoPage() {
         <div className="form-panel">
           <div className="panel-header"><span>DEMO INTAKE</span><span>01 / 03</span></div>
           {sent ? (
-            <div className="app-status">
+            <div className="app-status" role="status" aria-live="polite">
               <strong>Запитването е подготвено.</strong>
               <p>Това е демонстрационен режим. След свързване на реален имейл или CRM данните ще бъдат изпращани към избрания канал.</p>
               <button className="button" type="button" onClick={() => setSent(false)}>Ново запитване <span>↗</span></button>
