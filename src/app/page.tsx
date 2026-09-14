@@ -31,12 +31,12 @@ export default function HomePage() {
           {navigation.map(([href, label]) => <a href={href} key={href}>{label}</a>)}
         </nav>
         <div className="header-actions">
-          <a className="header-cta" href="#app">Виж платформата ↗</a>
+          <a className="header-cta" href="#app">Виж приложението ↗</a>
           <details className="mobile-menu">
             <summary aria-label="Отвори меню">Меню</summary>
             <nav aria-label="Мобилна навигация">
               {navigation.map(([href, label]) => <a href={href} key={href}>{label}</a>)}
-              <a className="mobile-menu-cta" href="#app">Виж платформата ↗</a>
+              <a className="mobile-menu-cta" href="#app">Виж приложението ↗</a>
             </nav>
           </details>
         </div>
@@ -45,25 +45,25 @@ export default function HomePage() {
       <div id="main-content" tabIndex={-1}>
         <section className="hero">
           <div className="hero-copy">
-            <div className="eyebrow"><span className="status-dot" /> INTELLIGENCE FOR INDUSTRIAL SYSTEMS</div>
-            <h1>Интелигентността<br />зад всяка <em>машина.</em></h1>
-            <p className="hero-lead">FactoryMind превръща сложната фабрична среда в ясна, проследима и адаптивна система за диагностика, знания и решения.</p>
+            <div className="eyebrow"><span className="status-dot" /> FACTORYMIND INDUSTRIAL DIAGNOSTICS APP</div>
+            <h1>Диагностика,<br />която разбира<br /><em>фабриката.</em></h1>
+            <p className="hero-lead">FactoryMind е приложение за индустриални екипи, което свързва симптоми, машини, процеси и технически знания, за да превърне сложния проблем в ясна следваща стъпка.</p>
             <div className="hero-actions">
-              <a className="button" href="#system">Разгледай системата <span>↗</span></a>
-              <a className="text-link" href="#how">Как работи <span>↓</span></a>
+              <a className="button" href="#app">Разгледай приложението <span>↗</span></a>
+              <a className="text-link" href="/demo">Заяви демонстрация <span>↗</span></a>
             </div>
-            <div className="hero-meta"><span>Машини</span><i /> <span>Процеси</span><i /> <span>Знания</span><i /> <span>Хора</span></div>
+            <div className="hero-meta"><span>Диагностика</span><i /> <span>Машини</span><i /> <span>Знания</span><i /> <span>Решения</span></div>
           </div>
-          <div className="hero-visual" role="img" aria-label="Илюстрация на интелигентна фабрична система">
-            <div className="visual-top"><span>FACTORYMIND / CORE</span><span className="live">● SYSTEM ONLINE</span></div>
+          <div className="hero-visual" role="img" aria-label="Преглед на приложението FactoryMind за индустриална диагностика">
+            <div className="visual-top"><span>FACTORYMIND APP / WORKSPACE</span><span className="live">● SYSTEM ONLINE</span></div>
             <div className="network">
               <div className="network-line line-a" /><div className="network-line line-b" /><div className="network-line line-c" />
-              <div className="node node-main"><span className="node-kicker">CORE ENGINE</span><strong>FactoryMind</strong><small>Context intelligence</small></div>
+              <div className="node node-main"><span className="node-kicker">DIAGNOSTIC ENGINE</span><strong>FactoryMind</strong><small>From symptom to action</small></div>
               <div className="node node-one"><span>01</span><strong>Machine</strong><small>Signals</small></div>
               <div className="node node-two"><span>02</span><strong>Process</strong><small>History</small></div>
               <div className="node node-three"><span>03</span><strong>Knowledge</strong><small>Evidence</small></div>
             </div>
-            <div className="visual-bottom"><span>DIAGNOSTIC CONTEXT</span><strong>01 / 04</strong></div>
+            <div className="visual-bottom"><span>DIAGNOSTIC WORKSPACE</span><strong>01 / 04</strong></div>
           </div>
         </section>
 
