@@ -54,7 +54,7 @@ export default function HomePage() {
             </div>
             <div className="hero-meta"><span>Диагностика</span><i /> <span>Машини</span><i /> <span>Знания</span><i /> <span>Решения</span></div>
           </div>
-          <div className="hero-visual" role="img" aria-label="Преглед на приложението FactoryMind за индустриална диагностика">
+          <div className="hero-visual" role="img" aria-label="Илюстративен preview на приложението FactoryMind за индустриална диагностика">
             <div className="visual-top"><span>FACTORYMIND APP / WORKSPACE</span><span className="live">● DIAGNOSTIC WORKFLOW</span></div>
             <div className="network">
               <div className="network-line line-a" /><div className="network-line line-b" /><div className="network-line line-c" />
