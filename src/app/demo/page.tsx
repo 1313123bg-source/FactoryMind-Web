@@ -21,7 +21,7 @@ export default function DemoPage() {
       <section className="section inner-hero">
         <div className="eyebrow">FACTORYMIND / DEMO REQUEST</div>
         <h1>Нека разгледаме<br /><em>вашата фабрика.</em></h1>
-        <p className="hero-lead">Заявете демонстрация и ще покажем как FactoryMind може да свърже симптоми, сигнали, документация и експертно знание в един проследим диагностичен процес.</p>
+        <p className="hero-lead">Заявете демонстрация и ще покажем как FactoryMind може да свърже симптоми, машини, документация и експертно знание в един проследим диагностичен процес.</p>
         <div className="form-panel">
           <div className="panel-header"><span>DEMO INTAKE</span><span>01 / 03</span></div>
           {sent ? (
