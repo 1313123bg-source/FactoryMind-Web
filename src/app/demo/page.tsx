@@ -26,8 +26,8 @@ export default function DemoPage() {
           <div className="panel-header"><span>DEMO INTAKE</span><span>01 / 03</span></div>
           {sent ? (
             <div className="app-status" role="status" aria-live="polite">
-              <strong>Запитването е подготвено.</strong>
-              <p>Това е демонстрационен режим. След свързване на реален имейл или CRM данните ще бъдат изпращани към избрания канал.</p>
+              <strong>Демонстрационното запитване е подготвено.</strong>
+              <p>Това е preview режим. Формулярът не изпраща реални данни, докато не свържем имейл или CRM канал.</p>
               <button className="button" type="button" onClick={() => setSent(false)}>Ново запитване <span>↗</span></button>
             </div>
           ) : (
@@ -36,10 +36,10 @@ export default function DemoPage() {
               <label htmlFor="demo-email">Работен имейл<input id="demo-email" type="email" name="email" autoComplete="email" placeholder="name@company.com" required /></label>
               <label htmlFor="demo-company">Компания<input id="demo-company" name="company" autoComplete="organization" placeholder="Име на компанията" /></label>
               <label htmlFor="demo-message">Какво искате да подобрите?<textarea id="demo-message" name="message" placeholder="Напр. диагностика на PLC, престои, знания на техниците..." rows={4} /></label>
-              <button className="button" type="submit">Изпрати запитване <span>↗</span></button>
+              <button className="button" type="submit">Прегледай запитването <span>↗</span></button>
             </form>
           )}
-          <p className="form-note">Демонстрационен режим — не се изпращат реални данни към сървър.</p>
+          <p className="form-note">Preview режим — не се изпращат реални данни към сървър.</p>
         </div>
       </section>
     </main>
