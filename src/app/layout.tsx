@@ -26,6 +26,7 @@ export const metadata: Metadata = {
     description:
       'Интелигентният слой между хората, машините и знанията.',
     type: 'website',
+    url: 'https://factorymind.ai/',
   },
   twitter: {
     card: 'summary_large_image',
