@@ -1,10 +1,15 @@
 'use client';
 
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
 export default function DemoPage() {
   const [sent, setSent] = useState(false);
+  const statusRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (sent) statusRef.current?.focus();
+  }, [sent]);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -25,7 +30,7 @@ export default function DemoPage() {
         <div className="form-panel">
           <div className="panel-header"><span>DEMO INTAKE</span><span>01 / 03</span></div>
           {sent ? (
-            <div className="app-status" role="status" aria-live="polite">
+            <div ref={statusRef} className="app-status" role="status" aria-live="polite" tabIndex={-1}>
               <strong>Демонстрационното запитване е подготвено.</strong>
               <p>Това е preview режим. Формулярът не изпраща реални данни, докато не свържем имейл или CRM канал.</p>
               <button className="button" type="button" onClick={() => setSent(false)}>Ново запитване <span>↗</span></button>
