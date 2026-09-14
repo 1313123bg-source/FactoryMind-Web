@@ -3,9 +3,13 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://factorymind.ai'),
-  title: 'FactoryMind — Intelligence for Industrial Systems',
+  title: {
+    default: 'FactoryMind — Intelligence for Industrial Systems',
+    template: '%s | FactoryMind',
+  },
   description:
     'FactoryMind свързва машини, процеси, знания и хора в интелигентна система за индустриална диагностика и решения.',
+  applicationName: 'FactoryMind',
   alternates: {
     canonical: '/',
   },
