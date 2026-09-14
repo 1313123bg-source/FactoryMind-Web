@@ -55,13 +55,13 @@ export default function HomePage() {
             <div className="hero-meta"><span>Диагностика</span><i /> <span>Машини</span><i /> <span>Знания</span><i /> <span>Решения</span></div>
           </div>
           <div className="hero-visual" role="img" aria-label="Преглед на приложението FactoryMind за индустриална диагностика">
-            <div className="visual-top"><span>FACTORYMIND APP / WORKSPACE</span><span className="live">● SYSTEM ONLINE</span></div>
+            <div className="visual-top"><span>FACTORYMIND APP / WORKSPACE</span><span className="live">● DIAGNOSTIC WORKFLOW</span></div>
             <div className="network">
               <div className="network-line line-a" /><div className="network-line line-b" /><div className="network-line line-c" />
               <div className="node node-main"><span className="node-kicker">DIAGNOSTIC ENGINE</span><strong>FactoryMind</strong><small>From symptom to action</small></div>
-              <div className="node node-one"><span>01</span><strong>Machine</strong><small>Signals</small></div>
-              <div className="node node-two"><span>02</span><strong>Process</strong><small>History</small></div>
-              <div className="node node-three"><span>03</span><strong>Knowledge</strong><small>Evidence</small></div>
+              <div className="node node-one"><span>01</span><strong>Machine</strong><small>Context</small></div>
+              <div className="node node-two"><span>02</span><strong>Documentation</strong><small>Evidence</small></div>
+              <div className="node node-three"><span>03</span><strong>Knowledge</strong><small>History</small></div>
             </div>
             <div className="visual-bottom"><span>DIAGNOSTIC WORKSPACE</span><strong>01 / 04</strong></div>
           </div>
