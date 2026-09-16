@@ -9,3 +9,25 @@
 @media(max-width:560px){.header{padding:20px}.header-cta{display:none}.hero{padding:70px 20px}.hero h1{font-size:clamp(43px,12vw,65px);letter-spacing:-2px}.hero-lead{font-size:15px}.hero-visual{padding:12px;min-height:350px}.network{height:280px}.node{min-width:95px;padding:10px}.node-main{min-width:150px}.node strong{font-size:12px}.signal-strip{padding:16px 20px}.section{padding:70px 20px}.steps,.capability-grid,.demo-form{grid-template-columns:1fr}.demo-form label:nth-child(4){grid-column:auto}.section h2{letter-spacing:-1px}.section-intro{display:block}.section-index{display:block;margin-top:20px}.footer{padding:25px 20px;display:block}.footer p{margin:15px 0}.form-panel,.app-panel{padding:20px}.inner-hero h1{letter-spacing:-1px}.expense-row{display:block}.expense-side{align-items:flex-start;margin-top:18px}.expense-side .button{white-space:normal}.mobile-menu nav{right:-4px;min-width:min(210px,calc(100vw - 40px))}}
 
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.skip-link{transition:none}}
+
+
+/* Editorial redesign layer — FactoryMind Web */
+.header{position:sticky;top:0;z-index:40;background:rgba(7,16,21,.88);backdrop-filter:blur(18px)}
+.brand{font-size:clamp(23px,2.4vw,32px);letter-spacing:-1.5px}
+.nav a,.header-cta{transition:color .2s ease,border-color .2s ease}
+.nav a:hover,.header-cta:hover{color:var(--teal);border-color:var(--teal)}
+.hero{min-height:calc(100vh - 88px);align-items:end;position:relative}
+.hero:after{content:"01—04";position:absolute;right:clamp(20px,8vw,120px);bottom:24px;font:10px 'DM Mono',monospace;color:#45636c;letter-spacing:2px}
+.hero h1{font-weight:700;max-width:850px}
+.hero-visual{border-radius:0;box-shadow:inset 0 0 0 1px rgba(99,224,202,.04);transition:transform .4s ease,border-color .4s ease}
+.hero-visual:hover{transform:translateY(-5px);border-color:var(--teal)}
+.section{min-height:560px;display:flex;flex-direction:column;justify-content:center}
+.section h2{max-width:900px}
+.step,.capability{transition:background .25s ease,border-color .25s ease,transform .25s ease}
+.step:hover{border-color:var(--teal);transform:translateY(-4px)}
+.capability:hover{background:#10252c;border-color:var(--teal);transform:translateY(-5px)}
+.manifesto-section{padding:clamp(90px,13vw,180px) clamp(20px,8vw,120px);border-bottom:1px solid var(--line);background:linear-gradient(110deg,#071015 0%,#0d252b 100%)}
+.manifesto-line{font-size:clamp(38px,7vw,104px);line-height:.98;letter-spacing:-4px;margin:18px 0;font-weight:700}
+.manifesto-line.accent{color:var(--teal);margin-left:clamp(0px,8vw,120px)}
+.manifesto-footer{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:70px;font:10px 'DM Mono',monospace;letter-spacing:1.4px;color:#6d8b94}
+@media(max-width:560px){.hero{min-height:auto}.hero:after{display:none}.manifesto-line{letter-spacing:-1.5px}.manifesto-line.accent{margin-left:0}.manifesto-footer{margin-top:45px;line-height:1.8}}

@@ -90,6 +90,14 @@ export default function HomePage() {
         </section>
       </div>
 
+        <section className="manifesto-section" aria-label="FactoryMind manifesto">
+          <div className="eyebrow">05 / МАНИФЕСТ</div>
+          <p className="manifesto-line">По-малко догадки.</p>
+          <p className="manifesto-line accent">Повече доказателства.</p>
+          <p className="manifesto-line">Една следваща стъпка.</p>
+          <div className="manifesto-footer"><span>FACTORYMIND / INDUSTRIAL INTELLIGENCE</span><span>BUILT FOR THE PEOPLE WHO KEEP THINGS MOVING.</span></div>
+        </section>
+
       <footer className="footer"><a className="brand" href="#top">Factory<span>Mind</span></a><p>Интелигентният слой между хората, машините и знанията.</p><span>© 2026 FactoryMind</span></footer>
     </main>
   );
