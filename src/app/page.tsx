@@ -1,104 +1,98 @@
-const capabilities = [
-  ['01', 'Диагностика по симптом', 'Започваме от реалния симптом, а не от предварително избрана причина.'],
-  ['02', 'Адаптивни проверки', 'Следващата проверка се избира според вероятност, стойност, време и риск.'],
-  ['03', 'Фабричен контекст', 'Машини, процеси, документи и знания се свързват в един общ контекст.'],
-  ['04', 'Проследима логика', 'Всяка хипотеза, проверка и препоръка остава видима и обяснима.'],
-  ['05', 'Сигурност по подразбиране', 'Достъпът и данните са разделени по организация, фабрика и роля.'],
-  ['06', 'Контролиран AI слой', 'AI може да надгражда системата, без да губим контрол, проследимост и човешка преценка.'],
-];
-
-const steps = [
-  ['01', 'Опиши симптома', 'Какво се случва, кога се случва и при какви условия?'],
-  ['02', 'Свържи контекста', 'Машина, процес, история, документация и предишни случаи.'],
-  ['03', 'Избери проверката', 'Системата подрежда следващите действия по стойност и риск.'],
-  ['04', 'Докажи причината', 'Резултатът се превръща в знание, което остава за екипа.'],
-];
-
 const navigation = [
+  ['#top', 'Начало'],
   ['#system', 'Система'],
-  ['#how', 'Как работи'],
-  ['#capabilities', 'Възможности'],
-  ['#app', 'Приложението'],
+  ['#method', 'Метод'],
+  ['#app', 'Приложение'],
+];
+
+const capabilities = [
+  ['01', 'Симптом → причина', 'Започва от реалния симптом и подрежда вероятните причини.'],
+  ['02', 'Контекст', 'Машини, процеси, документи, история и знания в един работен контекст.'],
+  ['03', 'Следваща проверка', 'Избира действие според стойност, време, риск и наличните доказателства.'],
+  ['04', 'Проследимост', 'Хипотезите, проверките и резултатите остават като знание за екипа.'],
 ];
 
 export default function HomePage() {
   return (
-    <main className="site" id="top">
-      <a className="skip-link" href="#main-content">Към основното съдържание</a>
-      <header className="header">
-        <a className="brand" href="#top">Factory<span>Mind</span></a>
-        <nav className="nav" aria-label="Основна навигация">
-          {navigation.map(([href, label]) => <a href={href} key={href}>{label}</a>)}
-        </nav>
-        <div className="header-actions">
-          <a className="header-cta" href="#app">Виж приложението ↗</a>
-          <details className="mobile-menu">
-            <summary aria-label="Отвори меню">Меню</summary>
-            <nav aria-label="Мобилна навигация">
-              {navigation.map(([href, label]) => <a href={href} key={href}>{label}</a>)}
-              <a className="mobile-menu-cta" href="#app">Виж приложението ↗</a>
-            </nav>
-          </details>
-        </div>
+    <main className="fm-site" id="top">
+      <header className="fm-header">
+        <a className="fm-logo" href="#top" aria-label="FactoryMind начало">FM<span>.</span></a>
+        <div className="fm-header-note">INDUSTRIAL INTELLIGENCE / 2026</div>
+        <a className="fm-demo-link" href="/demo">DEMO ↗</a>
       </header>
 
-      <div id="main-content" tabIndex={-1}>
-        <section className="hero">
-          <div className="hero-copy">
-            <div className="eyebrow"><span className="status-dot" /> FACTORYMIND INDUSTRIAL DIAGNOSTICS APP</div>
-            <h1>Диагностика,<br />която разбира<br /><em>фабриката.</em></h1>
-            <p className="hero-lead">FactoryMind е приложение за индустриални екипи, което свързва симптоми, машини, процеси и технически знания, за да превърне сложния проблем в ясна следваща стъпка.</p>
-            <div className="hero-actions">
-              <a className="button" href="#app">Разгледай приложението <span>↗</span></a>
-              <a className="text-link" href="/demo">Заяви демонстрация <span>↗</span></a>
-            </div>
-            <div className="hero-meta"><span>Диагностика</span><i /> <span>Машини</span><i /> <span>Знания</span><i /> <span>Решения</span></div>
-          </div>
-          <div className="hero-visual" role="img" aria-label="Илюстративен preview на приложението FactoryMind за индустриална диагностика">
-            <div className="visual-top"><span>FACTORYMIND APP / WORKSPACE</span><span className="live">● DIAGNOSTIC WORKFLOW</span></div>
-            <div className="network">
-              <div className="network-line line-a" /><div className="network-line line-b" /><div className="network-line line-c" />
-              <div className="node node-main"><span className="node-kicker">DIAGNOSTIC ENGINE</span><strong>FactoryMind</strong><small>From symptom to action</small></div>
-              <div className="node node-one"><span>01</span><strong>Machine</strong><small>Context</small></div>
-              <div className="node node-two"><span>02</span><strong>Documentation</strong><small>Evidence</small></div>
-              <div className="node node-three"><span>03</span><strong>Knowledge</strong><small>History</small></div>
-            </div>
-            <div className="visual-bottom"><span>DIAGNOSTIC WORKSPACE</span><strong>01 / 04</strong></div>
-          </div>
-        </section>
+      <nav className="fm-orbit" aria-label="Основна навигация">
+        <div className="fm-orbit-ring" />
+        {navigation.map(([href, label], index) => (
+          <a className={`fm-orbit-item fm-orbit-${index + 1}`} href={href} key={href}>
+            <span>0{index + 1}</span>{label}
+          </a>
+        ))}
+      </nav>
 
-        <section className="signal-strip"><span>BUILT FOR THE FACTORY FLOOR</span><span>REAL CONTEXT. BETTER DECISIONS.</span><span>TRACEABLE BY DESIGN.</span></section>
+      <section className="fm-hero" aria-labelledby="hero-title">
+        <div className="fm-hero-index">01 / 04</div>
+        <div className="fm-hero-copy">
+          <p className="fm-kicker">FACTORYMIND — INDUSTRIAL DIAGNOSTICS</p>
+          <h1 id="hero-title">Когато<br /><i>фабриката</i><br />трябва да мисли.</h1>
+          <p className="fm-hero-intro">Интелигентна работна среда за индустриални екипи. Свързва симптоми, машини и техническо знание, за да превърне сложния проблем в ясна следваща стъпка.</p>
+          <div className="fm-actions"><a className="fm-pill" href="#app">Разгледай FactoryMind <span>↗</span></a><a href="/demo" className="fm-underlink">Заяви демонстрация</a></div>
+        </div>
+        <div className="fm-hero-art" aria-hidden="true">
+          <div className="fm-art-circle fm-art-circle-one" />
+          <div className="fm-art-circle fm-art-circle-two" />
+          <div className="fm-art-label fm-art-label-a">SYMPTOM</div>
+          <div className="fm-art-label fm-art-label-b">CONTEXT</div>
+          <div className="fm-art-label fm-art-label-c">EVIDENCE</div>
+          <div className="fm-art-core"><span>FM</span><small>NEXT BEST CHECK</small></div>
+        </div>
+        <div className="fm-hero-footer"><span>BUILT FOR THE FACTORY FLOOR</span><span>SCROLL TO EXPLORE ↓</span></div>
+      </section>
 
-        <section className="section system-section" id="system">
-          <div className="section-heading"><div className="eyebrow">01 / СИСТЕМАТА</div><h2>Една фабрика.<br />Един интелигентен контекст.</h2></div>
-          <div className="section-intro"><p>Не още един списък с грешки. FactoryMind свързва симптома, историята, риска, машините и знанията, за да насочи екипа към следващата най-ценна проверка.</p><span className="section-index">FM—001</span></div>
-        </section>
+      <section className="fm-statement" id="system">
+        <div className="fm-section-meta">02 / SYSTEM</div>
+        <div>
+          <p className="fm-overline">НЕ ОЩЕ ЕДИН СПИСЪК С ГРЕШКИ.</p>
+          <h2>Един контекст.<br /><i>По-малко догадки.</i></h2>
+          <p className="fm-copy">FactoryMind събира реалния фабричен контекст около проблема — машината, симптома, документацията, предишните случаи и наличните доказателства.</p>
+        </div>
+      </section>
 
-        <section className="section how-section" id="how">
-          <div className="eyebrow">02 / ЛОГИКА</div><h2>От симптом към<br /><em>доказана причина.</em></h2>
-          <div className="steps">{steps.map(([n, title, description]) => <article className="step" key={n}><span>{n}</span><h3>{title}</h3><p>{description}</p></article>)}</div>
-        </section>
+      <section className="fm-method" id="method">
+        <div className="fm-section-meta">03 / METHOD</div>
+        <div className="fm-method-heading"><h2>От симптом<br /><i>към действие.</i></h2><p>Диагностиката се движи напред чрез малки, проверими стъпки.</p></div>
+        <div className="fm-capabilities">
+          {capabilities.map(([number, title, text]) => (
+            <article className="fm-capability" key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p><b>↗</b></article>
+          ))}
+        </div>
+      </section>
 
-        <section className="section capabilities-section" id="capabilities">
-          <div className="eyebrow">03 / ВЪЗМОЖНОСТИ</div><h2>Създадено за реалната<br />индустриална среда.</h2>
-          <div className="capability-grid">{capabilities.map(([n, title, description]) => <article className="capability" key={n}><span>{n}</span><h3>{title}</h3><p>{description}</p><b>↗</b></article>)}</div>
-        </section>
+      <section className="fm-app" id="app">
+        <div className="fm-section-meta">04 / FACTORYMIND APP</div>
+        <div className="fm-app-copy">
+          <p className="fm-overline">ПУБЛИЧНИЯТ САЙТ ПРЕДСТАВЯ ИДЕЯТА.</p>
+          <h2>Самото приложение<br /><i>върши работата.</i></h2>
+          <p className="fm-copy">Работна среда за хората, които поддържат фабриката в движение: случаи, машини, компоненти, документи, снимки, история и проследима логика.</p>
+          <div className="fm-app-actions"><a className="fm-pill" href="/app">Вход в приложението <span>↗</span></a><a className="fm-underlink" href="/demo">Заяви демонстрация</a></div>
+        </div>
+        <div className="fm-console" aria-label="Илюстративен екран на FactoryMind">
+          <div className="fm-console-top"><span>FACTORYMIND / DIAGNOSTIC WORKSPACE</span><span>ACTIVE</span></div>
+          <div className="fm-console-title">Machine / G1<br /><i>HPP380</i></div>
+          <div className="fm-console-row"><span>SYMPTOM</span><strong>Нестабилно рязане</strong></div>
+          <div className="fm-console-row"><span>CONTEXT</span><strong>Machine · History · Docs</strong></div>
+          <div className="fm-console-row"><span>NEXT CHECK</span><strong>Провери позициониращия модул ↗</strong></div>
+          <div className="fm-console-bottom">TRACEABLE DIAGNOSTIC LOG <span>●</span></div>
+        </div>
+      </section>
 
-        <section className="section product-section" id="app">
-          <div className="product-copy"><div className="eyebrow">04 / ПРИЛОЖЕНИЕ</div><h2>Това е приложението<br />FactoryMind.</h2><p>FactoryMind е отделна работна среда за индустриални екипи — мястото, където реалният фабричен контекст се превръща в конкретни диагностични действия.</p><div className="product-highlights"><span>Диагностични случаи</span><span>Машини и компоненти</span><span>Документация и знания</span><span>История и audit trail</span></div><p>Публичният сайт представя идеята. Самото приложение остава в отделната продуктова среда с диагностика, процеси, роли и фабричен контекст.</p><div className="hero-actions"><a className="button" href="/demo">Заяви демонстрация <span>↗</span></a><a className="text-link" href="/app">Вход в приложението <span>↗</span></a></div></div>
-          <div className="product-panel"><div className="panel-header"><span>FACTORYMIND APP</span><span>REAL MODULES</span></div><div className="panel-row"><span>Работна среда</span><strong>FactoryMind App</strong></div><div className="panel-row"><span>Машина</span><strong>G1 — Holzma HPP380</strong></div><div className="panel-row"><span>Диагностика</span><strong>Питай старши механик</strong></div><div className="panel-row"><span>Контекст</span><strong>Документация · Компоненти · Снимки · История</strong></div><div className="panel-footer">From symptom to next best check <span>●</span></div></div>
-        </section>
-      </div>
+      <section className="fm-end">
+        <p>FACTORYMIND</p>
+        <h2>По-малко догадки.<br /><i>Повече доказателства.</i></h2>
+        <a className="fm-big-link" href="/demo">Започни разговор <span>↗</span></a>
+      </section>
 
-        <section className="manifesto-section" aria-label="FactoryMind manifesto">
-          <div className="eyebrow">05 / МАНИФЕСТ</div>
-          <p className="manifesto-line">По-малко догадки.</p>
-          <p className="manifesto-line accent">Повече доказателства.</p>
-          <p className="manifesto-line">Една следваща стъпка.</p>
-          <div className="manifesto-footer"><span>FACTORYMIND / INDUSTRIAL INTELLIGENCE</span><span>BUILT FOR THE PEOPLE WHO KEEP THINGS MOVING.</span></div>
-        </section>
-
-      <footer className="footer"><a className="brand" href="#top">Factory<span>Mind</span></a><p>Интелигентният слой между хората, машините и знанията.</p><span>© 2026 FactoryMind</span></footer>
+      <footer className="fm-footer"><span>FACTORYMIND / INDUSTRIAL INTELLIGENCE</span><span>© 2026</span><a href="#top">BACK TO TOP ↑</a></footer>
     </main>
   );
 }
