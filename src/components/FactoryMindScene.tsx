@@ -40,16 +40,14 @@ export default function FactoryMindScene() {
       rim.position.set(-4, -2, -3);
       scene.add(rim);
 
-      const core = new THREE.Mesh(
-        new THREE.IcosahedronGeometry(1.02, 4),
-        new THREE.MeshStandardMaterial({ color: 0x10130e, metalness: 0.95, roughness: 0.18, emissive: 0x273118, emissiveIntensity: 1.1 })
-      );
+      const coreGeometry = new THREE.IcosahedronGeometry(1.02, 4);
+      const coreMaterial = new THREE.MeshStandardMaterial({ color: 0x10130e, metalness: 0.95, roughness: 0.18, emissive: 0x273118, emissiveIntensity: 1.1 });
+      const core = new THREE.Mesh(coreGeometry, coreMaterial);
       coreGroup.add(core);
 
-      const wire = new THREE.LineSegments(
-        new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(1.34, 3)),
-        new THREE.LineBasicMaterial({ color: 0xd9ff3f, transparent: true, opacity: 0.82 })
-      );
+      const wireGeometry = new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(1.34, 3));
+      const wireMaterial = new THREE.LineBasicMaterial({ color: 0xd9ff3f, transparent: true, opacity: 0.82 });
+      const wire = new THREE.LineSegments(wireGeometry, wireMaterial);
       coreGroup.add(wire);
 
       const rings = [1.7, 2.15, 2.58].map((radius, index) => {
@@ -74,7 +72,8 @@ export default function FactoryMindScene() {
       }
       const particleGeometry = new THREE.BufferGeometry();
       particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      const particles = new THREE.Points(particleGeometry, new THREE.PointsMaterial({ color: 0xc4ceb4, size: 0.018, transparent: true, opacity: 0.65, sizeAttenuation: true }));
+      const particleMaterial = new THREE.PointsMaterial({ color: 0xc4ceb4, size: 0.018, transparent: true, opacity: 0.65, sizeAttenuation: true });
+      const particles = new THREE.Points(particleGeometry, particleMaterial);
       root.add(particles);
 
       const nodes = new THREE.Group();
@@ -152,8 +151,15 @@ export default function FactoryMindScene() {
         window.removeEventListener('scroll', scrollMove);
         canvas.removeEventListener('pointermove', pointerMove);
         canvas.removeEventListener('pointerleave', pointerLeave);
-        particleGeometry.dispose();
+        scene.traverse((object: any) => {
+          if (object.geometry) object.geometry.dispose();
+          if (object.material) {
+            const materials = Array.isArray(object.material) ? object.material : [object.material];
+            materials.forEach((material: any) => material.dispose());
+          }
+        });
         renderer.dispose();
+        renderer.forceContextLoss?.();
       };
     };
 
