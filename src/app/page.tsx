@@ -2,16 +2,68 @@
 
 import FactoryMindScene from '@/components/FactoryMindScene';
 
-const navigation = [['#top','Начало'],['#system','Система'],['#method','Метод'],['#app','Приложение']];
+const nav = [['#top', 'Home'], ['#platform', 'Platform'], ['#intelligence', 'Intelligence'], ['#app', 'App']];
+
+const metrics = [
+  ['01', 'MACHINES CONNECTED', '248'],
+  ['02', 'ACTIVE SIGNALS', '1,204'],
+  ['03', 'CASES RESOLVED', '98.7%'],
+];
 
 export default function HomePage() {
-  return <main className="fm-site fm-immersive" id="top">
-    <header className="fm-header"><a className="fm-logo" href="#top">FM<span>.</span></a><div className="fm-header-note">INDUSTRIAL INTELLIGENCE / 2026</div><a className="fm-demo-link" href="/demo">ENTER DEMO ↗</a></header>
-    <nav className="fm-orbit" aria-label="Основна навигация"><div className="fm-orbit-ring" />{navigation.map(([href,label],i)=><a className={`fm-orbit-item fm-orbit-${i+1}`} href={href} key={href}><span>0{i+1}</span>{label}</a>)}</nav>
-    <section className="fm-hero" aria-labelledby="hero-title"><div className="fm-hero-index">01 / 04<br/><span>LIVE EXPERIENCE</span></div><div className="fm-hero-copy"><p className="fm-kicker">FACTORYMIND — THE INTELLIGENCE LAYER</p><h1 id="hero-title">Когато<br/><i>фабриката</i><br/>започне да мисли.</h1><p className="fm-hero-intro">Интерактивна интелигентна среда за индустриални екипи. Свързва машини, симптоми, документи и доказателства в една система.</p><div className="fm-actions"><a className="fm-pill" href="#system">Влез в системата <span>↗</span></a><a href="/demo" className="fm-underlink">Заяви демонстрация</a></div></div><div className="fm-3d-stage"><div className="fm-grid-floor"/><div className="fm-hud fm-hud-top">SYSTEM ONLINE <span>●</span></div><FactoryMindScene/><div className="fm-hud fm-hud-bottom">NEXT BEST CHECK <strong>READY ↗</strong></div></div><div className="fm-hero-footer"><span>BUILT FOR THE FACTORY FLOOR</span><span>MOVE YOUR CURSOR / TOUCH TO EXPLORE ↓</span></div></section>
-    <section className="fm-statement" id="system"><div className="fm-section-meta">02 / SYSTEM</div><div><p className="fm-overline">THE FACTORY IS A LIVING SYSTEM.</p><h2>Един контекст.<br/><i>По-малко догадки.</i></h2><p className="fm-copy">FactoryMind събира реалния фабричен контекст около проблема — машината, симптома, документацията, предишните случаи и наличните доказателства.</p></div><div className="fm-data-wall"><span>01 / MACHINES</span><span>02 / HISTORY</span><span>03 / DOCUMENTS</span><span>04 / SIGNALS</span></div></section>
-    <section className="fm-method" id="method"><div className="fm-section-meta">03 / METHOD</div><div className="fm-method-heading"><h2>От симптом<br/><i>към действие.</i></h2><p>Диагностиката се движи напред чрез малки, проверими стъпки.</p></div><div className="fm-capabilities">{['Симптом → причина','Контекст','Следваща проверка','Проследимост'].map((title,i)=><article className="fm-capability" key={title}><span>0{i+1}</span><h3>{title}</h3><p>{['Започва от реалния симптом и подрежда вероятните причини.','Машини, процеси, документи, история и знания в един контекст.','Избира действие според стойност, време, риск и доказателства.','Хипотезите, проверките и резултатите остават като знание.'][i]}</p><b>↗</b></article>)}</div></section>
-    <section className="fm-app" id="app"><div className="fm-section-meta">04 / FACTORYMIND APP</div><div className="fm-app-copy"><p className="fm-overline">THE INTERFACE FOR REAL WORK.</p><h2>Самото приложение<br/><i>върши работата.</i></h2><p className="fm-copy">Работна среда за хората, които поддържат фабриката в движение: случаи, машини, компоненти, документи, снимки, история и проследима логика.</p><div className="fm-app-actions"><a className="fm-pill" href="/app">Вход в приложението <span>↗</span></a><a className="fm-underlink" href="/demo">Заяви демонстрация</a></div></div><div className="fm-console"><div className="fm-console-top"><span>FACTORYMIND / DIAGNOSTIC WORKSPACE</span><span>ACTIVE</span></div><div className="fm-console-title">Machine / G1<br/><i>HPP380</i></div><div className="fm-console-row"><span>SYMPTOM</span><strong>Нестабилно рязане</strong></div><div className="fm-console-row"><span>CONTEXT</span><strong>Machine · History · Docs</strong></div><div className="fm-console-row"><span>NEXT CHECK</span><strong>Провери позициониращия модул ↗</strong></div><div className="fm-console-bottom">TRACEABLE DIAGNOSTIC LOG <span>●</span></div></div></section>
-    <section className="fm-end"><p>FACTORYMIND</p><h2>По-малко догадки.<br/><i>Повече доказателства.</i></h2><a className="fm-big-link" href="/demo">Започни разговор <span>↗</span></a></section><footer className="fm-footer"><span>FACTORYMIND / INDUSTRIAL INTELLIGENCE</span><span>© 2026</span><a href="#top">BACK TO TOP ↑</a></footer>
-  </main>;
+  return (
+    <main className="fm-site fm-dark" id="top">
+      <header className="fm-header">
+        <a className="fm-brand" href="#top"><span className="fm-brand-mark">FM</span><span>FACTORYMIND</span></a>
+        <nav className="fm-nav" aria-label="Main navigation">
+          {nav.map(([href, label]) => <a href={href} key={href}>{label}</a>)}
+        </nav>
+        <a className="fm-header-cta" href="/demo">Enter demo <span>↗</span></a>
+      </header>
+
+      <section className="fm-hero" aria-labelledby="hero-title">
+        <div className="fm-hero-grid" />
+        <div className="fm-hero-copy">
+          <div className="fm-eyebrow"><span className="fm-live-dot" /> INDUSTRIAL INTELLIGENCE / SYSTEM ONLINE</div>
+          <h1 id="hero-title">Smarter<br /><span>Factories.</span><br />Stronger<br /><span>Tomorrow.</span></h1>
+          <p className="fm-hero-lead">The intelligence layer for real industrial work. Connect machines, signals, documents and people in one living system.</p>
+          <div className="fm-hero-actions"><a className="fm-button fm-button-primary" href="/demo">Explore the system <span>↗</span></a><a className="fm-text-link" href="#platform">See how it works <span>↓</span></a></div>
+        </div>
+
+        <div className="fm-hero-visual">
+          <div className="fm-visual-label fm-visual-label-top"><span>CORE / 01</span><b>LIVE</b></div>
+          <FactoryMindScene />
+          <div className="fm-floating-card fm-card-status"><div className="fm-card-kicker">SYSTEM STATUS <span className="fm-live-dot" /></div><strong>Operational</strong><span>All critical systems nominal</span><div className="fm-status-line"><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /></div></div>
+          <div className="fm-floating-card fm-card-metric"><span className="fm-card-kicker">PREDICTIVE ACCURACY</span><strong>98.7<span>%</span></strong><small>↑ 12.4% this month</small></div>
+          <div className="fm-visual-label fm-visual-label-bottom"><span>LATENCY 24ms</span><span>SECURE / ENCRYPTED</span></div>
+        </div>
+        <div className="fm-scroll-note">SCROLL TO ENTER THE SYSTEM <span>↓</span></div>
+      </section>
+
+      <section className="fm-metrics" id="platform">
+        <div className="fm-section-tag">01 / THE PLATFORM</div>
+        <div className="fm-section-intro"><p className="fm-eyebrow">ONE SOURCE OF TRUTH</p><h2>Every signal.<br /><span>One clear direction.</span></h2><p>FactoryMind turns fragmented factory context into a single operational picture — so teams can move from uncertainty to action.</p></div>
+        <div className="fm-metric-grid">{metrics.map(([number, label, value]) => <div className="fm-metric" key={number}><span>{number}</span><small>{label}</small><strong>{value}</strong><em>↗</em></div>)}</div>
+      </section>
+
+      <section className="fm-intelligence" id="intelligence">
+        <div className="fm-section-tag">02 / INTELLIGENCE</div>
+        <div className="fm-intelligence-heading"><p className="fm-eyebrow">FROM SYMPTOM TO ACTION</p><h2>Built for the<br /><span>factory floor.</span></h2><p>Not another dashboard. A reasoning workspace for the people who keep production moving.</p></div>
+        <div className="fm-feature-grid">
+          <article><span>01</span><h3>Connect the context</h3><p>Machines, maintenance history, documents, photos and signals — connected around the real problem.</p><b>↗</b></article>
+          <article><span>02</span><h3>Understand the signal</h3><p>Turn symptoms into structured hypotheses with traceable evidence and practical next checks.</p><b>↗</b></article>
+          <article><span>03</span><h3>Act with confidence</h3><p>Choose the next useful action based on risk, time, value and what is actually known.</p><b>↗</b></article>
+        </div>
+      </section>
+
+      <section className="fm-app-section" id="app">
+        <div className="fm-section-tag">03 / FACTORYMIND APP</div>
+        <div className="fm-app-copy"><p className="fm-eyebrow">THE WORKSPACE</p><h2>Less guessing.<br /><span>More evidence.</span></h2><p>Cases, machines, components, documents and diagnostic history in one focused interface.</p><div className="fm-hero-actions"><a className="fm-button fm-button-accent" href="/app">Open the app <span>↗</span></a><a className="fm-text-link" href="/demo">Request a demo <span>↗</span></a></div></div>
+        <div className="fm-dashboard"><div className="fm-dashboard-top"><span>FACTORYMIND / DIAGNOSTIC WORKSPACE</span><b><i className="fm-live-dot" /> ACTIVE</b></div><div className="fm-dashboard-heading"><small>MACHINE / G1</small><h3>HPP380 <span>↗</span></h3></div><div className="fm-dashboard-row"><span>SYMPTOM</span><strong>Unstable cutting</strong></div><div className="fm-dashboard-row"><span>CONTEXT</span><strong>Machine · History · Docs</strong></div><div className="fm-dashboard-row"><span>NEXT CHECK</span><strong>Inspect positioning module ↗</strong></div><div className="fm-dashboard-bottom">TRACEABLE DIAGNOSTIC LOG <span>●</span></div></div>
+      </section>
+
+      <section className="fm-final"><p className="fm-eyebrow">FACTORYMIND / 2026</p><h2>The factory<br /><span>is ready to think.</span></h2><a className="fm-final-link" href="/demo">Start a conversation <span>↗</span></a></section>
+      <footer className="fm-footer"><span>FACTORYMIND — INDUSTRIAL INTELLIGENCE</span><span>BUILT FOR REAL WORK</span><a href="#top">BACK TO TOP ↑</a></footer>
+    </main>
+  );
 }
