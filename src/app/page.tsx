@@ -14,7 +14,7 @@ export default function HomePage() {
   return (
     <main className="fm-site fm-dark" id="top">
       <header className="fm-header">
-        <a className="fm-brand" href="#top"><span className="fm-brand-mark">FM</span><span>FACTORYMIND</span></a>
+        <a className="fm-brand" href="#top" aria-label="FactoryMind home"><span className="fm-brand-mark">FM</span><span>FACTORYMIND</span></a>
         <nav className="fm-nav" aria-label="Main navigation">
           {nav.map(([href, label]) => <a href={href} key={href}>{label}</a>)}
         </nav>
@@ -30,7 +30,7 @@ export default function HomePage() {
           <div className="fm-hero-actions"><a className="fm-button fm-button-primary" href="/demo">Explore the system <span>↗</span></a><a className="fm-text-link" href="#platform">See how it works <span>↓</span></a></div>
         </div>
 
-        <div className="fm-hero-visual">
+        <div className="fm-hero-visual" aria-label="Live FactoryMind intelligence core visualization">
           <div className="fm-visual-label fm-visual-label-top"><span>CORE / 01</span><b>LIVE</b></div>
           <FactoryMindScene />
           <div className="fm-floating-card fm-card-status"><div className="fm-card-kicker">SYSTEM STATUS <span className="fm-live-dot" /></div><strong>Operational</strong><span>All critical systems nominal</span><div className="fm-status-line"><i /><i /><i /><i /><i /><i /><i /><i /><i /><i /></div></div>
@@ -59,7 +59,7 @@ export default function HomePage() {
       <section className="fm-app-section" id="app">
         <div className="fm-section-tag">03 / FACTORYMIND APP</div>
         <div className="fm-app-copy"><p className="fm-eyebrow">THE WORKSPACE</p><h2>Less guessing.<br /><span>More evidence.</span></h2><p>Cases, machines, components, documents and diagnostic history in one focused interface.</p><div className="fm-hero-actions"><a className="fm-button fm-button-accent" href="/app">Open the app <span>↗</span></a><a className="fm-text-link" href="/demo">Request a demo <span>↗</span></a></div></div>
-        <div className="fm-dashboard"><div className="fm-dashboard-top"><span>FACTORYMIND / DIAGNOSTIC WORKSPACE</span><b><i className="fm-live-dot" /> ACTIVE</b></div><div className="fm-dashboard-heading"><small>MACHINE / G1</small><h3>HPP380 <span>↗</span></h3></div><div className="fm-dashboard-row"><span>SYMPTOM</span><strong>Unstable cutting</strong></div><div className="fm-dashboard-row"><span>CONTEXT</span><strong>Machine · History · Docs</strong></div><div className="fm-dashboard-row"><span>NEXT CHECK</span><strong>Inspect positioning module ↗</strong></div><div className="fm-dashboard-bottom">TRACEABLE DIAGNOSTIC LOG <span>●</span></div></div>
+        <div className="fm-dashboard" aria-label="FactoryMind diagnostic workspace preview"><div className="fm-dashboard-top"><span>FACTORYMIND / DIAGNOSTIC WORKSPACE</span><b><i className="fm-live-dot" /> ACTIVE</b></div><div className="fm-dashboard-heading"><small>MACHINE / G1</small><h3>HPP380 <span>↗</span></h3></div><div className="fm-dashboard-row"><span>SYMPTOM</span><strong>Unstable cutting</strong></div><div className="fm-dashboard-row"><span>CONTEXT</span><strong>Machine · History · Docs</strong></div><div className="fm-dashboard-row"><span>NEXT CHECK</span><strong>Inspect positioning module ↗</strong></div><div className="fm-dashboard-bottom">TRACEABLE DIAGNOSTIC LOG <span>●</span></div></div>
       </section>
 
       <section className="fm-final"><p className="fm-eyebrow">FACTORYMIND / 2026</p><h2>The factory<br /><span>is ready to think.</span></h2><a className="fm-final-link" href="/demo">Start a conversation <span>↗</span></a></section>
