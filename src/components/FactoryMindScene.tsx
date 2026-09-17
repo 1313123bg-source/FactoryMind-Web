@@ -52,7 +52,14 @@ export default function FactoryMindScene() {
           return ring;
         });
 
-        const particleCount = 1500;
+        const shockwaves = [1.25, 1.55].map((radius, index) => {
+          const shockwave = new THREE.Mesh(new THREE.TorusGeometry(radius, 0.018, 8, 160), new THREE.MeshBasicMaterial({ color: index ? 0xff9b52 : 0x9bdcff, transparent: true, opacity: 0.5 }));
+          shockwave.rotation.x = Math.PI / 2;
+          coreGroup.add(shockwave);
+          return shockwave;
+        });
+
+        const particleCount = 1900;
         const positions = new Float32Array(particleCount * 3);
         for (let i = 0; i < particleCount; i += 1) {
           const radius = 2.6 + Math.random() * 3.2;
@@ -69,12 +76,32 @@ export default function FactoryMindScene() {
 
         const nodes = new THREE.Group();
         const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0xff9b52 });
-        [[-2.65, 1.5, 0.3], [2.55, 0.85, -0.2], [-2, -1.75, 0.45], [1.8, -1.95, 0.15], [0.1, 2.65, -0.4]].forEach(([x, y, z], index) => {
+        const nodePositions = [[-2.65, 1.5, 0.3], [2.55, 0.85, -0.2], [-2, -1.75, 0.45], [1.8, -1.95, 0.15], [0.1, 2.65, -0.4]];
+        nodePositions.forEach(([x, y, z], index) => {
           const node = new THREE.Mesh(new THREE.SphereGeometry(index === 4 ? 0.1 : 0.075, 18, 18), nodeMaterial);
           node.position.set(x, y, z);
           nodes.add(node);
         });
         root.add(nodes);
+
+        const satellites = new THREE.Group();
+        const satelliteMaterials = [new THREE.MeshBasicMaterial({ color: 0x54d9ff }), new THREE.MeshBasicMaterial({ color: 0xff9b52 })];
+        [2.9, 3.35, 3.8].forEach((radius, index) => {
+          const satellite = new THREE.Mesh(new THREE.OctahedronGeometry(index === 1 ? 0.12 : 0.085, 1), satelliteMaterials[index % 2]);
+          satellite.userData.radius = radius;
+          satellite.userData.phase = index * 2.1;
+          satellite.userData.speed = 0.22 + index * 0.07;
+          satellites.add(satellite);
+        });
+        root.add(satellites);
+
+        const energyLines = new THREE.Group();
+        const lineMaterial = new THREE.LineBasicMaterial({ color: 0x54d9ff, transparent: true, opacity: 0.42 });
+        nodePositions.forEach(([x, y, z]) => {
+          const geometry = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0, 0), new THREE.Vector3(x, y, z)]);
+          energyLines.add(new THREE.Line(geometry, lineMaterial));
+        });
+        coreGroup.add(energyLines);
 
         const target = { x: 0, y: 0, scroll: 0 };
         const current = { x: 0, y: 0, scroll: 0 };
@@ -100,8 +127,27 @@ export default function FactoryMindScene() {
           rings[0].rotation.z = time * 0.3;
           rings[1].rotation.x = -time * 0.2;
           rings[2].rotation.y = time * 0.24;
+          shockwaves.forEach((shockwave, index) => {
+            const pulse = (Math.sin(time * 1.8 + index * Math.PI) + 1) / 2;
+            shockwave.scale.setScalar(0.82 + pulse * 0.38);
+            shockwave.material.opacity = 0.16 + pulse * 0.45;
+            shockwave.rotation.z = time * (index ? -0.45 : 0.6);
+          });
           particles.rotation.y = -time * 0.025;
+          particles.rotation.x = Math.sin(time * 0.16) * 0.08;
           nodes.rotation.y = -time * 0.06;
+          energyLines.rotation.y = time * 0.08;
+          satellites.rotation.x = time * 0.12;
+          satellites.rotation.z = -time * 0.18;
+          satellites.children.forEach((satellite: any) => {
+            const angle = time * satellite.userData.speed + satellite.userData.phase;
+            const radius = satellite.userData.radius;
+            satellite.position.set(Math.cos(angle) * radius, Math.sin(angle * 1.27) * radius * 0.62, Math.sin(angle) * radius);
+            satellite.rotation.x = time * 1.4;
+            satellite.rotation.y = time * 1.8;
+          });
+          key.intensity = 28 + Math.sin(time * 2.2) * 8;
+          rim.intensity = 14 + Math.cos(time * 1.7) * 5;
           camera.position.x += (current.x * 0.42 - camera.position.x) * 0.018;
           camera.position.y += (-current.y * 0.26 - camera.position.y) * 0.018;
           camera.lookAt(0, 0, 0);
