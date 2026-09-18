@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import FactoryMindScene from '@/components/FactoryMindScene';
 
 const stats = [
@@ -16,17 +17,38 @@ const features = [
   ['▱', 'Scalable Solutions', 'Grow with confidence'],
 ];
 
+const nav = [
+  ['Home', '#top'],
+  ['Demo', '/demo'],
+  ['App', '/app'],
+  ['For Owners', '/owner'],
+  ['Contact', '#contact'],
+];
+
 export default function HomePage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <main className="fm-site" id="top">
       <header className="fm-header">
         <a className="fm-brand" href="#top" aria-label="FactoryMind home"><span className="fm-brand-mark">⌬</span><b>FactoryMind</b></a>
         <nav className="fm-nav" aria-label="Main navigation">
-          <a href="#top">Home</a><a href="/demo">Demo</a><a href="/app">App</a><a href="/owner">For Owners</a><a href="#contact">Contact</a>
+          {nav.map(([label, href]) => <a key={label} href={href}>{label}</a>)}
         </nav>
-        <a className="fm-header-cta" href="/demo">Get Started</a>
-        <button className="fm-menu" aria-label="Open menu"><span/><span/><span/></button>
+        <a className="fm-header-cta" href="/demo">Get Started <span>→</span></a>
+        <button className="fm-menu" type="button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(v => !v)}>
+          <span/><span/><span/>
+        </button>
       </header>
+
+      {menuOpen && (
+        <div className="fm-mobile-menu" role="dialog" aria-label="Mobile navigation">
+          <div className="fm-mobile-menu-inner">
+            {nav.map(([label, href]) => <a key={label} href={href} onClick={() => setMenuOpen(false)}>{label}<span>↗</span></a>)}
+            <a className="fm-mobile-cta" href="/demo" onClick={() => setMenuOpen(false)}>Get Started <span>→</span></a>
+          </div>
+        </div>
+      )}
 
       <section className="fm-hero">
         <div className="fm-hero-media"><FactoryMindScene /></div>
@@ -50,10 +72,12 @@ export default function HomePage() {
       </section>
 
       <section className="fm-lower" id="contact">
-        <a href="/demo"><span>Live Demo</span><b>See FactoryMind in action.</b><small>Explore real-world AI solutions for manufacturing.</small></a>
-        <a href="/app"><span>FactoryMind App</span><b>Your factory. In your hands.</b><small>Monitor. Optimize. Act.</small></a>
-        <a href="/owner"><span>For Factory Owners</span><b>More control. Higher profits.</b><small>A smarter future for your business.</small></a>
+        <a href="/demo"><span>/demo</span><b>Live Demo</b><small>Explore FactoryMind in action.</small><em>↗</em></a>
+        <a href="/app"><span>/app</span><b>The FactoryMind App</b><small>Your factory. In your hands.</small><em>↗</em></a>
+        <a href="/owner"><span>/owner</span><b>For Factory Owners</b><small>More control. A smarter future.</small><em>↗</em></a>
       </section>
+
+      <footer className="fm-footer"><a className="fm-brand" href="#top"><span className="fm-brand-mark">⌬</span><b>FactoryMind</b></a><span>AI-POWERED MANUFACTURING</span><span>A SMARTER TOMORROW.</span></footer>
     </main>
   );
 }
