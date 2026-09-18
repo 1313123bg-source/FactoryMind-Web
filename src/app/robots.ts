@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://factorymind.ai/sitemap.xml',
+    sitemap: 'https://factory-mind-web.vercel.app/sitemap.xml',
   };
 }
