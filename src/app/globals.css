@@ -318,3 +318,104 @@
     right:auto!important;
   }
 }
+
+
+/* FINAL IMAGE-AS-SITE MODE */
+.fm-hero{
+  height:auto!important;
+  aspect-ratio:974 / 442!important;
+}
+.fm-reference-stage{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+}
+.fm-reference-picture{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+}
+.fm-reference-image{
+  width:100%!important;
+  height:100%!important;
+  object-fit:fill!important;
+  object-position:center!important;
+  filter:none!important;
+  transform:none!important;
+}
+.fm-hero-overlay{display:none!important}
+.fm-header{
+  opacity:0!important;
+  pointer-events:auto!important;
+}
+.fm-hero-copy{
+  opacity:0!important;
+  pointer-events:auto!important;
+}
+.fm-ai-card{
+  opacity:0!important;
+  pointer-events:none!important;
+}
+.fm-hero-media,.fm-hero-media .fm-scene-shell{
+  filter:none!important;
+}
+@media(min-width:1001px){
+  .fm-header{height:82px!important}
+  .fm-hero-copy{left:7.5%!important;top:18%!important;width:38%!important}
+  .fm-actions{pointer-events:auto!important}
+}
+@media(min-width:651px) and (max-width:1000px){
+  .fm-hero{
+    aspect-ratio:505 / 466!important;
+  }
+  .fm-header{height:68px!important}
+  .fm-hero-copy{left:7%!important;top:19%!important;width:42%!important}
+}
+@media(max-width:650px){
+  .fm-hero{
+    aspect-ratio:230 / 473!important;
+  }
+  .fm-header{
+    height:70px!important;
+    padding:0 18px!important;
+  }
+  .fm-hero-copy{
+    left:18px!important;
+    top:15%!important;
+    width:calc(100% - 36px)!important;
+  }
+  .fm-actions{pointer-events:auto!important}
+  .fm-mobile-menu{
+    position:absolute!important;
+    inset:0!important;
+    z-index:30!important;
+    background:transparent!important;
+    border:0!important;
+    box-shadow:none!important;
+    backdrop-filter:none!important;
+    overflow:hidden!important;
+  }
+  .fm-mobile-menu-inner{
+    min-height:100%!important;
+    padding:110px 18px 24px!important;
+    display:flex!important;
+    flex-direction:column!important;
+  }
+  .fm-mobile-menu a{
+    opacity:0!important;
+    height:52px!important;
+    min-height:52px!important;
+    padding:0!important;
+    border:0!important;
+    flex:none!important;
+    pointer-events:auto!important;
+  }
+  .fm-mobile-menu .fm-mobile-cta{
+    opacity:0!important;
+    height:58px!important;
+    min-height:58px!important;
+    margin-top:16px!important;
+  }
+}
