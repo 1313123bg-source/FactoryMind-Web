@@ -64,7 +64,7 @@ export default function HomePage() {
 
       <section className="fm-stats" id="platform"><p>Trusted by innovators in manufacturing</p><div>{stats.map(([value,label])=><article key={label}><strong>{value}</strong><span>{label}</span></article>)}</div></section>
 
-      <section className="fm-built">
+      <section className="fm-built" id="built">
         <div className="fm-built-panel">
           <div className="fm-section-heading"><h2>Built for Modern Industry</h2><p>FactoryMind combines cutting-edge AI with real-world industrial expertise<br className="desktop-only"/> to deliver measurable results.</p></div>
           <div className="fm-feature-grid">{features.map(([icon,title,desc])=><article key={title}><span className="fm-feature-icon">{icon}</span><h3>{title}</h3><p>{desc}</p></article>)}</div>
