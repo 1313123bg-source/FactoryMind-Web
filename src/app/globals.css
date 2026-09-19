@@ -243,16 +243,3 @@
   .fm-ai-card .fm-bars{height:24px;margin-top:3px;padding-top:4px}
   .fm-ai-card .fm-bars i{width:8px}
 }
-
-/* EXACT DESKTOP REFERENCE */
-@media(min-width:1001px){
-  .fm-hero{height:calc(min(100vw,1536px) * 442 / 974);min-height:442px;max-height:697px}
-  .fm-header{background:transparent;border-bottom-color:transparent;backdrop-filter:none}
-  .fm-header>*{opacity:0}
-  .fm-header{pointer-events:none}
-  .fm-header>*{pointer-events:auto}
-  .fm-reference-hero img{object-fit:fill!important;transform:none!important;filter:none!important}
-  .fm-hero-overlay{display:none!important}
-  .fm-hero-copy,.fm-ai-card{opacity:0!important;pointer-events:none!important}
-  .fm3d-camera{opacity:0!important}
-}
