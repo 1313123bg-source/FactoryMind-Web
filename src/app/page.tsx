@@ -11,8 +11,8 @@ const stats = [
 ];
 
 const features = [
-  ['◫', 'AI Analytics', 'Turn data into decisions'],
-  ['✦', 'Process Automation', 'Streamline operations'],
+  ['▥', 'AI Analytics', 'Turn data into decisions'],
+  ['✣', 'Process Automation', 'Streamline operations'],
   ['◇', 'Predictive Maintenance', 'Avoid costly downtime'],
   ['▱', 'Scalable Solutions', 'Grow with confidence'],
 ];
@@ -25,18 +25,39 @@ const nav = [
   ['Contact', '#contact'],
 ];
 
+function Brand() {
+  return (
+    <span className="fm-brand">
+      <span className="fm-brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" role="presentation">
+          <path d="M16 2.8 26.8 9v14L16 29.2 5.2 23V9L16 2.8Z" />
+          <path d="M16 8.2 21.8 11.5v7L16 21.8l-5.8-3.3v-7L16 8.2Z" />
+          <path d="M16 12v7M12.7 14l6.6 3.8M19.3 14 12.7 17.8" />
+        </svg>
+      </span>
+      <b>FactoryMind</b>
+    </span>
+  );
+}
+
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <main className="fm-site" id="top">
       <header className="fm-header">
-        <a className="fm-brand" href="#top" aria-label="FactoryMind home"><span className="fm-brand-mark">⌬</span><b>FactoryMind</b></a>
+        <a href="#top" aria-label="FactoryMind home"><Brand /></a>
         <nav className="fm-nav" aria-label="Main navigation">
           {nav.map(([label, href]) => <a key={label} href={href}>{label}</a>)}
         </nav>
         <a className="fm-header-cta" href="/demo">Get Started <span>→</span></a>
-        <button className="fm-menu" type="button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(v => !v)}>
+        <button
+          className={`fm-menu ${menuOpen ? 'is-open' : ''}`}
+          type="button"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(v => !v)}
+        >
           <span/><span/><span/>
         </button>
       </header>
@@ -44,7 +65,13 @@ export default function HomePage() {
       {menuOpen && (
         <div className="fm-mobile-menu" role="dialog" aria-label="Mobile navigation">
           <div className="fm-mobile-menu-inner">
-            {nav.map(([label, href]) => <a key={label} href={href} onClick={() => setMenuOpen(false)}>{label}<span>↗</span></a>)}
+            {nav.map(([label, href]) => (
+              <a key={label} href={href} onClick={() => setMenuOpen(false)}>
+                <span className="fm-menu-dot" aria-hidden="true">◇</span>
+                <span>{label}</span>
+                <span className="fm-menu-arrow">↗</span>
+              </a>
+            ))}
             <a className="fm-mobile-cta" href="/demo" onClick={() => setMenuOpen(false)}>Get Started <span>→</span></a>
           </div>
         </div>
@@ -57,17 +84,40 @@ export default function HomePage() {
           <div className="fm-pill">AI FOR REAL INDUSTRY</div>
           <h1>Smarter<br/>Factories<br/><span>Stronger<br/>Tomorrow</span></h1>
           <p>AI-powered solutions for modern manufacturing.<br/>Increase efficiency. Reduce costs. Build the future.</p>
-          <div className="fm-actions"><a className="fm-button fm-button-primary" href="/demo">See Live Demo <span>→</span></a><a className="fm-button fm-button-ghost" href="#platform">Learn More</a></div>
+          <div className="fm-actions">
+            <a className="fm-button fm-button-primary" href="/demo">See Live Demo <span>→</span></a>
+            <a className="fm-button fm-button-ghost" href="#built">Learn More</a>
+          </div>
         </div>
-        <div className="fm-ai-card"><b>AI Optimizing...</b><div><span>Production</span><strong>+24%</strong></div><div><span>Energy Use</span><strong>-18%</strong></div><div><span>Downtime</span><strong>-67%</strong></div><div className="fm-bars"><i/><i/><i/><i/><i/><i/></div></div>
+        <div className="fm-ai-card" aria-label="AI optimization metrics">
+          <b>AI Optimizing...</b>
+          <div><span>Production</span><strong>+24%</strong></div>
+          <div><span>Energy Use</span><strong>-18%</strong></div>
+          <div><span>Downtime</span><strong>-67%</strong></div>
+          <div className="fm-bars"><i/><i/><i/><i/><i/><i/></div>
+        </div>
       </section>
 
-      <section className="fm-stats" id="platform"><p>Trusted by innovators in manufacturing</p><div>{stats.map(([value,label])=><article key={label}><strong>{value}</strong><span>{label}</span></article>)}</div></section>
+      <section className="fm-stats" id="platform">
+        <p>Trusted by innovators in manufacturing</p>
+        <div>{stats.map(([value, label]) => <article key={label}><strong>{value}</strong><span>{label}</span></article>)}</div>
+      </section>
 
       <section className="fm-built" id="built">
         <div className="fm-built-panel">
-          <div className="fm-section-heading"><h2>Built for Modern Industry</h2><p>FactoryMind combines cutting-edge AI with real-world industrial expertise<br className="desktop-only"/> to deliver measurable results.</p></div>
-          <div className="fm-feature-grid">{features.map(([icon,title,desc])=><article key={title}><span className="fm-feature-icon">{icon}</span><h3>{title}</h3><p>{desc}</p></article>)}</div>
+          <div className="fm-section-heading">
+            <h2>Built for Modern Industry</h2>
+            <p>FactoryMind combines cutting-edge AI with real-world industrial expertise<br className="desktop-only"/> to deliver measurable results.</p>
+          </div>
+          <div className="fm-feature-grid">
+            {features.map(([icon, title, desc]) => (
+              <article key={title}>
+                <span className="fm-feature-icon">{icon}</span>
+                <h3>{title}</h3>
+                <p>{desc}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -77,7 +127,11 @@ export default function HomePage() {
         <a href="/owner"><span>/owner</span><b>For Factory Owners</b><small>More control. A smarter future.</small><em>↗</em></a>
       </section>
 
-      <footer className="fm-footer"><a className="fm-brand" href="#top"><span className="fm-brand-mark">⌬</span><b>FactoryMind</b></a><span>AI-POWERED MANUFACTURING</span><span>A SMARTER TOMORROW.</span></footer>
+      <footer className="fm-footer">
+        <a href="#top" aria-label="FactoryMind home"><Brand /></a>
+        <span>AI-POWERED MANUFACTURING</span>
+        <span>A SMARTER TOMORROW.</span>
+      </footer>
     </main>
   );
 }
