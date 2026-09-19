@@ -449,3 +449,24 @@
   .fm-hero-copy{top:96px!important}
   .fm-ai-card{top:302px!important;right:18px!important;left:auto!important;width:164px!important}
 }
+
+/* FINAL APPROVED REFERENCE — supplied visual is the hero, not an SVG approximation */
+.fm-hero{height:auto!important;aspect-ratio:974 / 442!important;margin-top:0!important}
+.fm-hero-media{position:absolute!important;inset:0!important;z-index:0!important;display:block!important;background:#02070d!important;overflow:hidden!important}
+.fm-hero-media>.fm-reference-stage{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;overflow:hidden!important;background:#02070d!important}
+.fm-reference-picture{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important}
+.fm-reference-image{display:block!important;width:100%!important;height:100%!important;object-fit:fill!important;object-position:center!important;filter:none!important;transform:none!important}
+.fm-header{opacity:0!important;visibility:visible!important;pointer-events:auto!important}
+.fm-hero-copy{opacity:0!important;visibility:visible!important;pointer-events:auto!important}
+.fm-ai-card{opacity:0!important;visibility:visible!important;pointer-events:none!important}
+.fm-hero-overlay{display:none!important}
+@media(min-width:1001px){.fm-hero{aspect-ratio:974 / 442!important}}
+@media(min-width:651px) and (max-width:1000px){.fm-hero{aspect-ratio:505 / 466!important}.fm-header{height:68px!important}}
+@media(max-width:650px){
+ .fm-hero{aspect-ratio:230 / 473!important}
+ .fm-header{height:70px!important;padding:0 18px!important}
+ .fm-mobile-menu{position:absolute!important;inset:0!important;z-index:30!important;background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;overflow:hidden!important}
+ .fm-mobile-menu-inner{min-height:100%!important;padding:110px 18px 24px!important;display:flex!important;flex-direction:column!important}
+ .fm-mobile-menu a{opacity:0!important;height:52px!important;min-height:52px!important;padding:0!important;border:0!important;flex:none!important;pointer-events:auto!important}
+ .fm-mobile-menu .fm-mobile-cta{opacity:0!important;height:58px!important;min-height:58px!important;margin-top:16px!important}
+}
