@@ -196,3 +196,47 @@
   .inner-page .expense-row{align-items:flex-start;flex-direction:column}
   .inner-page .expense-side{width:100%;align-items:flex-start;text-align:left}
 }
+
+
+/* REFERENCE POSITION CORRECTION */
+@media(min-width:1001px){
+  .fm-ai-card{
+    left:70.5%;
+    right:auto;
+    top:19%;
+    width:20.8%;
+    max-width:320px;
+    min-width:260px;
+    padding:16px;
+    border-radius:10px;
+  }
+  .fm-ai-card>b{font-size:14px;margin-bottom:11px}
+  .fm-ai-card div{font-size:10px;padding:4px 0}
+  .fm-ai-card strong{font-size:13px}
+  .fm-bars{height:38px}
+}
+@media(min-width:651px) and (max-width:1000px){
+  .fm-ai-card{
+    left:72%;
+    right:auto;
+    top:20%;
+    width:23%;
+    min-width:150px;
+    max-width:210px;
+    padding:12px;
+  }
+}
+@media(max-width:650px){
+  .fm-ai-card{
+    left:47%;
+    right:auto;
+    top:61%;
+    width:43%;
+    min-width:140px;
+    max-width:164px;
+    padding:11px;
+  }
+  .fm-ai-card>b{font-size:10px;margin-bottom:6px}
+  .fm-ai-card div{font-size:8px;padding:3px 0}
+  .fm-ai-card strong{font-size:10px}
+}
