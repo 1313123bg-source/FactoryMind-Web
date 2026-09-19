@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import anime from 'animejs/lib/anime.es.js';
+import { DESKTOP_REFERENCE } from './referenceAssets';
 
 export default function FactoryMindScene() {
   const ref = useRef<HTMLDivElement>(null);
@@ -96,7 +97,10 @@ export default function FactoryMindScene() {
   return (
     <div ref={ref} className="fm-scene-shell fm3d-scene" aria-hidden="true">
       <div className="fm-reference-hero">
-        <img src="/factorymind-hero.webp" alt="" draggable={false} />
+        <picture>
+          <source media="(min-width:1001px)" srcSet={DESKTOP_REFERENCE} />
+          <img src="/factorymind-hero.webp" alt="" draggable={false} />
+        </picture>
       </div>
 
       <div className="fm3d-camera">
