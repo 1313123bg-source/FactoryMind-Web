@@ -428,3 +428,24 @@
 @media(min-width:1001px){.fm-hero{height:auto!important;aspect-ratio:974 / 442!important}}
 @media(min-width:651px) and (max-width:1000px){.fm-hero{height:auto!important;aspect-ratio:505 / 466!important}}
 @media(max-width:650px){.fm-hero{height:auto!important;aspect-ratio:230 / 473!important}}
+
+
+/* HERO RECOVERY — restore visible functional composition */
+.fm-direct-reference{display:none!important}
+.fm-hero-media{position:absolute!important;inset:0!important;z-index:0!important;display:block!important;opacity:1!important;visibility:visible!important;background:radial-gradient(circle at 70% 40%,#123a50 0%,#071a27 28%,#030a10 62%,#02070d 100%)!important;overflow:hidden!important}
+.fm-hero-media>.fm-scene-shell{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;display:block!important;opacity:1!important;visibility:visible!important}
+.fm-factory-art{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;overflow:hidden!important;transform:translate3d(calc(var(--mx,0) * -5px),calc(var(--my,0) * -3px),0)!important;transition:transform .18s ease-out!important}
+.fm-factory-svg{display:block!important;width:100%!important;height:100%!important;min-width:100%!important;min-height:100%!important;object-fit:cover!important;filter:saturate(1.08) contrast(1.04)!important}
+.fm-header{opacity:1!important;visibility:visible!important}
+.fm-hero-copy{opacity:1!important;visibility:visible!important;pointer-events:auto!important;z-index:4!important}
+.fm-ai-card{opacity:1!important;visibility:visible!important;pointer-events:auto!important;z-index:5!important}
+.fm-hero-overlay{display:block!important;z-index:2!important}
+.fm-hero{height:470px!important;aspect-ratio:auto!important}
+@media(max-width:1000px){.fm-hero{height:428px!important;aspect-ratio:auto!important}}
+@media(max-width:650px){
+  .fm-hero{height:540px!important;aspect-ratio:auto!important}
+  .fm-hero-media{inset:0!important}
+  .fm-factory-svg{transform:scale(1.15)!important;transform-origin:60% 58%!important}
+  .fm-hero-copy{top:96px!important}
+  .fm-ai-card{top:302px!important;right:18px!important;left:auto!important;width:164px!important}
+}
