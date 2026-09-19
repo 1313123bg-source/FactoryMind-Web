@@ -203,11 +203,12 @@
   .fm-ai-card{
     left:70.5%;
     right:auto;
-    top:19%;
+    top:24%;
     width:20.8%;
     max-width:320px;
     min-width:260px;
-    padding:16px;
+    min-height:220px;
+    padding:18px;
     border-radius:10px;
   }
   .fm-ai-card>b{font-size:14px;margin-bottom:11px}
@@ -219,7 +220,7 @@
   .fm-ai-card{
     left:72%;
     right:auto;
-    top:20%;
+    top:25%;
     width:23%;
     min-width:150px;
     max-width:210px;
@@ -228,15 +229,18 @@
 }
 @media(max-width:650px){
   .fm-ai-card{
-    left:47%;
+    left:44%;
     right:auto;
-    top:61%;
-    width:43%;
-    min-width:140px;
-    max-width:164px;
-    padding:11px;
+    top:66%;
+    width:47%;
+    min-width:0;
+    max-width:176px;
+    height:92px;
+    padding:8px;
   }
-  .fm-ai-card>b{font-size:10px;margin-bottom:6px}
-  .fm-ai-card div{font-size:8px;padding:3px 0}
-  .fm-ai-card strong{font-size:10px}
+  .fm-ai-card>b{font-size:9px;margin-bottom:4px}
+  .fm-ai-card div{font-size:7px;padding:2px 0}
+  .fm-ai-card strong{font-size:9px}
+  .fm-ai-card .fm-bars{height:24px;margin-top:3px;padding-top:4px}
+  .fm-ai-card .fm-bars i{width:8px}
 }
