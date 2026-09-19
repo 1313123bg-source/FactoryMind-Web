@@ -95,6 +95,11 @@ export default function FactoryMindScene() {
 
   return (
     <div ref={ref} className="fm-scene-shell fm3d-scene" aria-hidden="true">
+      <div className="fm-reference-hero">
+        <img src="/factorymind-hero.webp" alt="" draggable={false} />
+        <a className="fm-ref-hotspot fm-ref-demo" href="/demo" aria-label="See Live Demo" />
+        <a className="fm-ref-hotspot fm-ref-more" href="#built" aria-label="Learn More" />
+      </div>
       <div className="fm3d-camera">
         <div className="fm3d-factory">
           <div className="fm3d-ceiling"><i/><i/><i/><i/></div>
