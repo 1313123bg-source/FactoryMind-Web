@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import FactoryMindScene from '@/components/FactoryMindScene';
-
 const stats = [
   ['+24%', 'Average Productivity'],
   ['-18%', 'Energy Consumption'],
@@ -78,7 +76,13 @@ export default function HomePage() {
       )}
 
       <section className="fm-hero">
-        <div className="fm-hero-media"><FactoryMindScene menuOpen={menuOpen} /></div>
+        <div className="fm-hero-media fm-direct-reference" aria-hidden="true">
+          <picture className="fm-direct-reference-picture">
+            <source media="(max-width: 650px)" srcSet={menuOpen ? '/reference/menu.webp' : '/reference/mobile.webp'} />
+            <source media="(max-width: 1000px)" srcSet="/reference/tablet.webp" />
+            <img className="fm-direct-reference-image" src="/reference/desktop.webp" alt="" draggable={false} />
+          </picture>
+        </div>
         <div className="fm-hero-overlay" />
         <div className="fm-hero-copy">
           <div className="fm-pill">AI FOR REAL INDUSTRY</div>
