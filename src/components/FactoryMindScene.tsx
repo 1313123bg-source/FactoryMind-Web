@@ -18,9 +18,9 @@ export default function FactoryMindScene() {
 
     const boxLoop = anime({
       targets: belts,
-      translateX: () => anime.random(-34, 34),
-      translateZ: () => anime.random(-12, 12),
-      rotateY: () => anime.random(-4, 4),
+      translateX: () => anime.random(-18, 18),
+      translateZ: () => anime.random(-8, 8),
+      rotateY: () => anime.random(-3, 3),
       duration: 1800,
       delay: anime.stagger(170),
       easing: 'easeInOutSine',
@@ -30,8 +30,8 @@ export default function FactoryMindScene() {
 
     anime({
       targets: arm,
-      rotateZ: ['-4deg', '7deg'],
-      rotateY: ['-10deg', '10deg'],
+      rotateZ: ['-3deg', '5deg'],
+      rotateY: ['-7deg', '7deg'],
       duration: 2600,
       easing: 'easeInOutSine',
       direction: 'alternate',
@@ -40,7 +40,7 @@ export default function FactoryMindScene() {
 
     anime({
       targets: leds,
-      opacity: [0.2, 1],
+      opacity: [0.25, 1],
       scale: [0.8, 1.3],
       duration: 900,
       delay: anime.stagger(180),
@@ -51,8 +51,8 @@ export default function FactoryMindScene() {
 
     anime({
       targets: panel,
-      translateY: [-5, 7],
-      rotateX: ['3deg', '-3deg'],
+      translateY: [-4, 6],
+      rotateX: ['2deg', '-2deg'],
       duration: 3400,
       easing: 'easeInOutSine',
       direction: 'alternate',
@@ -65,8 +65,8 @@ export default function FactoryMindScene() {
       const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
       anime({
         targets: camera,
-        rotateY: x * 7,
-        rotateX: y * -4,
+        rotateY: x * 4,
+        rotateX: y * -2.5,
         duration: 700,
         easing: 'easeOutQuad',
       });
@@ -97,16 +97,12 @@ export default function FactoryMindScene() {
     <div ref={ref} className="fm-scene-shell fm3d-scene" aria-hidden="true">
       <div className="fm-reference-hero">
         <img src="/factorymind-hero.webp" alt="" draggable={false} />
-        <a className="fm-ref-hotspot fm-ref-demo" href="/demo" aria-label="See Live Demo" />
-        <a className="fm-ref-hotspot fm-ref-more" href="#built" aria-label="Learn More" />
       </div>
+
       <div className="fm3d-camera">
         <div className="fm3d-factory">
           <div className="fm3d-ceiling"><i/><i/><i/><i/></div>
-
-          <div className="fm3d-floor">
-            <span/><span/><span/><span/>
-          </div>
+          <div className="fm3d-floor"><span/><span/><span/><span/></div>
 
           <div className="fm3d-conveyor">
             <div className="fm3d-belt"/>
