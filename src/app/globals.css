@@ -419,3 +419,12 @@
     margin-top:16px!important;
   }
 }
+
+
+/* DIRECT REFERENCE RENDER — production-safe fallback */
+.fm-direct-reference{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:0!important;display:block!important;background:#02070d!important;overflow:hidden!important}
+.fm-direct-reference-picture{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important}
+.fm-direct-reference-image{display:block!important;width:100%!important;height:100%!important;object-fit:fill!important;object-position:center!important;filter:none!important;transform:none!important}
+@media(min-width:1001px){.fm-hero{height:auto!important;aspect-ratio:974 / 442!important}}
+@media(min-width:651px) and (max-width:1000px){.fm-hero{height:auto!important;aspect-ratio:505 / 466!important}}
+@media(max-width:650px){.fm-hero{height:auto!important;aspect-ratio:230 / 473!important}}
