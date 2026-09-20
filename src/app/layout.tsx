@@ -8,42 +8,20 @@ export const metadata: Metadata = {
     default: 'FactoryMind — Intelligence for Industrial Systems',
     template: '%s | FactoryMind',
   },
-  description:
-    'FactoryMind свързва машини, процеси, знания и хора в интелигентна система за индустриална диагностика и решения.',
+  description: 'FactoryMind AI-powered industrial intelligence for modern manufacturing.',
   applicationName: 'FactoryMind',
-  alternates: {
-    canonical: '/',
-  },
-  keywords: [
-    'FactoryMind',
-    'industrial intelligence',
-    'industrial diagnostics',
-    'factory software',
-    'PLC diagnostics',
-    'машинна диагностика',
-  ],
-  robots: {
-    index: true,
-    follow: true,
-  },
+  alternates: { canonical: '/' },
+  icons: { icon: '/icon.svg', shortcut: '/icon.svg', apple: '/icon.svg' },
+  robots: { index: true, follow: true },
   openGraph: {
     title: 'FactoryMind — Intelligence for Industrial Systems',
-    description:
-      'Интелигентният слой между хората, машините и знанията.',
+    description: 'AI-powered industrial intelligence for modern manufacturing.',
     type: 'website',
     url: 'https://factory-mind-web.vercel.app/',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'FactoryMind — Intelligence for Industrial Systems',
-    description:
-      'Интелигентният слой между хората, машините и знанията.',
-  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="bg">
       <body>{children}</body>
