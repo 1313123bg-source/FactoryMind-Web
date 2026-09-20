@@ -1,75 +1,39 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-
 export default function FactoryMindScene() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const onMove = (event: PointerEvent) => {
-      const rect = el.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
-      const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
-      el.style.setProperty('--mx', String(x));
-      el.style.setProperty('--my', String(y));
-    };
-    const onLeave = () => {
-      el.style.setProperty('--mx', '0');
-      el.style.setProperty('--my', '0');
-    };
-    el.addEventListener('pointermove', onMove, { passive: true });
-    el.addEventListener('pointerleave', onLeave, { passive: true });
-    return () => {
-      el.removeEventListener('pointermove', onMove);
-      el.removeEventListener('pointerleave', onLeave);
-    };
-  }, []);
-
   return (
-    <div ref={ref} className="fm-scene-shell fm-factory-art" aria-hidden="true">
-      <svg viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice" className="fm-factory-svg">
+    <div className="fm-scene-shell fm-factory-art" aria-hidden="true">
+      <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" className="fm-factory-svg">
         <defs>
-          <linearGradient id="fm-bg" x2="0" y2="1"><stop stopColor="#08111a"/><stop offset="1" stopColor="#02070d"/></linearGradient>
-          <linearGradient id="fm-floor" x2="1"><stop stopColor="#07131d"/><stop offset=".5" stopColor="#102331"/><stop offset="1" stopColor="#050b11"/></linearGradient>
-          <linearGradient id="fm-blue" x2="1"><stop stopColor="#42c9ff" stopOpacity=".18"/><stop offset="1" stopColor="#1598e8" stopOpacity=".65"/></linearGradient>
-          <filter id="fm-glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <linearGradient id="bg" x2="0" y2="1"><stop stopColor="#07141f"/><stop offset=".55" stopColor="#071019"/><stop offset="1" stopColor="#02070d"/></linearGradient>
+          <linearGradient id="floor" x2="1"><stop stopColor="#06111a"/><stop offset=".5" stopColor="#132c3b"/><stop offset="1" stopColor="#040a10"/></linearGradient>
+          <linearGradient id="glass" x2="1"><stop stopColor="#3ecbff" stopOpacity=".08"/><stop offset="1" stopColor="#178fe3" stopOpacity=".55"/></linearGradient>
+          <filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         </defs>
-        <rect width="1400" height="700" fill="url(#fm-bg)"/>
-        <g opacity=".75" stroke="#2c566d" strokeWidth="7" fill="none">
-          <path d="M40 500V70M250 500V70M480 500V70M720 500V70M970 500V70M1190 500V70M1360 500V70"/>
-          <path d="M40 105H1360M40 185H1360M40 265H1360M40 345H1360"/>
+        <rect width="1600" height="900" fill="url(#bg)"/>
+        <g opacity=".6" stroke="#24485b" strokeWidth="8" fill="none">
+          <path d="M60 570V90M300 570V90M550 570V90M810 570V90M1080 570V90M1350 570V90M1540 570V90"/>
+          <path d="M60 120H1540M60 220H1540M60 320H1540M60 420H1540"/>
         </g>
-        <g opacity=".35" stroke="#8bdcff" strokeWidth="3">
-          <path d="M0 90L350 500M260 90L520 500M610 90L720 500M1000 90L850 500M1360 90L1080 500"/>
-        </g>
-        <g filter="url(#fm-glow)" fill="#d9f6ff">
-          <rect x="110" y="105" width="150" height="13" rx="6"/><rect x="480" y="105" width="180" height="13" rx="6"/>
-          <rect x="900" y="105" width="180" height="13" rx="6"/><rect x="1180" y="105" width="120" height="13" rx="6"/>
-        </g>
-        <polygon points="0,480 1400,430 1400,700 0,700" fill="url(#fm-floor)"/>
-        <g opacity=".5" stroke="#1c759f" strokeWidth="3">
-          <path d="M0 650L1400 560M0 590L1400 520M0 535L1400 485"/>
-          <path d="M180 470L420 700M420 465L580 700M760 450L760 700M1080 440L930 700M1280 435L1100 700"/>
-        </g>
-        <g transform="translate(400 390) rotate(-8)">
-          <rect x="0" y="70" width="850" height="70" rx="12" fill="#0a1b27" stroke="#2b9dcc" strokeWidth="5"/>
-          <rect x="0" y="62" width="850" height="9" fill="#52d2ff" opacity=".65"/>
-          <g fill="url(#fm-blue)" stroke="#63d8ff" strokeWidth="4">
-            <rect x="55" y="10" width="105" height="70" rx="5"/><rect x="215" y="2" width="105" height="70" rx="5"/>
-            <rect x="380" y="-8" width="105" height="70" rx="5"/><rect x="545" y="-18" width="105" height="70" rx="5"/>
-            <rect x="705" y="-28" width="105" height="70" rx="5"/>
+        <g opacity=".2" stroke="#9ce7ff" strokeWidth="4"><path d="M0 120L410 570M240 120L580 570M650 120L810 570M1100 120L930 570M1600 120L1210 570"/></g>
+        <g filter="url(#glow)" fill="#d9f7ff"><rect x="120" y="122" width="210" height="14" rx="7"/><rect x="520" y="122" width="230" height="14" rx="7"/><rect x="930" y="122" width="230" height="14" rx="7"/><rect x="1300" y="122" width="150" height="14" rx="7"/></g>
+        <polygon points="0,560 1600,505 1600,900 0,900" fill="url(#floor)"/>
+        <g opacity=".45" stroke="#2384b2" strokeWidth="3"><path d="M0 840L1600 680M0 750L1600 625M0 675L1600 575"/><path d="M160 545L500 900M430 535L670 900M800 530V900M1160 520L960 900M1420 515L1190 900"/></g>
+        <g transform="translate(390 500) rotate(-5)">
+          <rect x="0" y="62" width="1000" height="92" rx="16" fill="#091d2a" stroke="#2b9dcc" strokeWidth="6"/>
+          <rect x="0" y="51" width="1000" height="12" fill="#56d8ff" opacity=".72"/>
+          <g fill="url(#glass)" stroke="#67d9ff" strokeWidth="5">
+            <rect x="70" y="-5" width="120" height="82" rx="7"/><rect x="250" y="-14" width="120" height="82" rx="7"/><rect x="430" y="-23" width="120" height="82" rx="7"/><rect x="610" y="-32" width="120" height="82" rx="7"/><rect x="790" y="-41" width="120" height="82" rx="7"/>
           </g>
+          <g fill="#8ee8ff" opacity=".22"><rect x="88" y="13" width="82" height="4"/><rect x="268" y="4" width="82" height="4"/><rect x="448" y="-5" width="82" height="4"/><rect x="628" y="-14" width="82" height="4"/><rect x="808" y="-23" width="82" height="4"/></g>
         </g>
-        <g transform="translate(650 170)" stroke="#b8c7d0" strokeWidth="30" strokeLinecap="round" fill="none">
-          <path d="M0 260L80 80L210 155L285 20"/><path d="M285 20L325 0"/>
+        <g transform="translate(930 205)">
+          <g stroke="#aebbc3" strokeWidth="38" strokeLinecap="round" fill="none"><path d="M0 310L92 110L250 190L340 36"/><path d="M340 36L390 4"/></g>
+          <g fill="#354957" stroke="#79dcff" strokeWidth="6"><circle cx="0" cy="310" r="58"/><circle cx="92" cy="110" r="36"/><circle cx="250" cy="190" r="36"/><rect x="330" y="-15" width="92" height="44" rx="10"/></g>
+          <path d="M407 10l40 30-27 46-38-27z" fill="#5b7180" stroke="#7cdefe" strokeWidth="5"/>
         </g>
-        <g transform="translate(650 170)" fill="#354957" stroke="#76d8ff" strokeWidth="5">
-          <circle cx="0" cy="260" r="48"/><circle cx="80" cy="80" r="30"/><circle cx="210" cy="155" r="30"/>
-          <rect x="270" y="-15" width="75" height="35" rx="9"/>
-        </g>
-        <g opacity=".55" fill="#6bd9ff"><circle cx="520" cy="220" r="4"/><circle cx="850" cy="120" r="4"/><circle cx="1040" cy="280" r="4"/><circle cx="1150" cy="180" r="3"/></g>
+        <g opacity=".72" fill="#5bd8ff" filter="url(#glow)"><circle cx="540" cy="250" r="4"/><circle cx="780" cy="170" r="5"/><circle cx="1210" cy="290" r="5"/><circle cx="1360" cy="200" r="4"/></g>
+        <g opacity=".18" fill="#63d9ff"><rect x="1240" y="350" width="150" height="230" rx="8"/><rect x="1420" y="315" width="95" height="265" rx="8"/></g>
       </svg>
     </div>
   );
