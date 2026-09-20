@@ -51,7 +51,7 @@ export default function HomePage() {
       )}
 
       <section className="fm-hero">
-        <div className="fm-hero-media"><FactoryMindScene menuOpen={menuOpen} /></div>
+        <div className="fm-hero-media"><FactoryMindScene /></div>
         <div className="fm-hero-overlay" />
         <div className="fm-hero-copy">
           <div className="fm-pill">AI FOR REAL INDUSTRY</div>
