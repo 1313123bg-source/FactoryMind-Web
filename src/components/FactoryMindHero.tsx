@@ -14,7 +14,6 @@ const styles = `
 .fmx-logo img{width:28px;height:28px}
 .fmx-navlinks{display:flex;align-items:center;gap:28px;margin-left:auto}
 .fmx-navlinks a{color:#eef6ff;text-decoration:none;font-size:14px;opacity:.92}
-.fmx-navlinks a:hover{opacity:1}
 .fmx-start{display:inline-flex;align-items:center;gap:8px;background:#16a6ff;color:#fff;text-decoration:none;padding:12px 18px;border-radius:8px;font-size:14px;font-weight:700;box-shadow:0 0 24px rgba(22,166,255,.18)}
 .fmx-menu{display:none;margin-left:auto;width:40px;height:40px;border:1px solid rgba(55,132,181,.45);border-radius:10px;background:rgba(8,18,28,.8);color:#fff;align-items:center;justify-content:center}
 .fmx-hero__body{position:relative;display:grid;grid-template-columns:42% 58%;min-height:450px;background:linear-gradient(90deg,#02070d 0%,#03111b 43%,#02070d 100%)}
@@ -96,7 +95,7 @@ export default function FactoryMindHero({ menuOpen, onToggleMenu }: Props) {
           </div>
         </div>
         <div className="fmx-art">
-          <img src="/reference/hero-factory.webp" alt="FactoryMind robotic production line" />
+          <img src="/factorymind-hero.webp" alt="FactoryMind robotic production line" />
         </div>
       </div>
     </section>
