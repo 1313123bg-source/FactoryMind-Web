@@ -59,21 +59,23 @@ const styles = `
 `;
 
 export default function FactoryMindHero({ menuOpen, onToggleMenu }: Props) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
   return (
     <section className="fmx-hero" aria-label="FactoryMind home hero">
       <style>{styles}</style>
       <header className="fmx-hero__nav">
         <a href="#top" className="fmx-logo" aria-label="FactoryMind home">
-          <img src="/icon.svg" alt="" />
+          <img src={`${basePath}/icon.svg`} alt="" />
           <span>FactoryMind</span>
         </a>
         <nav className="fmx-navlinks" aria-label="Primary navigation">
           <a href="#top">Home</a>
-          <a href="/demo">Demo</a>
-          <a href="/app">App</a>
+          <a href={`${basePath}/demo/`}>Demo</a>
+          <a href={`${basePath}/app/`}>App</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a className="fmx-start" href="/demo">Get Started <ArrowRight size={16}/></a>
+        <a className="fmx-start" href={`${basePath}/demo/`}>Get Started <ArrowRight size={16}/></a>
         <button type="button" className="fmx-menu" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={onToggleMenu}>
           <Menu size={20} />
         </button>
@@ -90,12 +92,12 @@ export default function FactoryMindHero({ menuOpen, onToggleMenu }: Props) {
           </h1>
           <p>AI-powered solutions for modern manufacturing. Increase efficiency. Reduce costs. Build the future.</p>
           <div className="fmx-actions">
-            <a className="fmx-btn fmx-btn--primary" href="/demo">See Live Demo <ArrowRight size={16}/></a>
+            <a className="fmx-btn fmx-btn--primary" href={`${basePath}/demo/`}>See Live Demo <ArrowRight size={16}/></a>
             <a className="fmx-btn fmx-btn--ghost" href="#platform">Learn More</a>
           </div>
         </div>
         <div className="fmx-art">
-          <img src="/reference/hero-factory.webp" alt="FactoryMind robotic production line" />
+          <img src={`${basePath}/reference/hero-factory.webp`} alt="FactoryMind robotic production line" />
         </div>
       </div>
     </section>

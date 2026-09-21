@@ -20,6 +20,7 @@ const features = [
 
 export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
   return (
     <main className="fm-home" id="top">
@@ -29,7 +30,7 @@ export default function HomePage() {
         <div className="fm-mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
           <div className="fm-mobile-menu__top">
             <a href="#top" className="fm-brand" onClick={() => setMenuOpen(false)} aria-label="FactoryMind home">
-              <img src="/icon.svg" alt="" />
+              <img src={`${basePath}/icon.svg`} alt="" />
               <strong>FactoryMind</strong>
             </a>
             <button type="button" className="fm-menu-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
@@ -39,18 +40,14 @@ export default function HomePage() {
 
           <nav className="fm-mobile-menu__links" aria-label="Mobile navigation">
             <a href="#top" onClick={() => setMenuOpen(false)}><Home size={17} />Home</a>
-            <a href="/demo" onClick={() => setMenuOpen(false)}><CirclePlay size={17} />Demo</a>
-            <a href="/app" onClick={() => setMenuOpen(false)}><AppWindow size={17} />App</a>
+            <a href={`${basePath}/demo/`} onClick={() => setMenuOpen(false)}><CirclePlay size={17} />Demo</a>
+            <a href={`${basePath}/app/`} onClick={() => setMenuOpen(false)}><AppWindow size={17} />App</a>
             <a href="#contact" onClick={() => setMenuOpen(false)}><MessageSquare size={17} />Contact</a>
           </nav>
 
-          <a className="fm-mobile-menu__cta" href="/demo" onClick={() => setMenuOpen(false)}>
+          <a className="fm-mobile-menu__cta" href={`${basePath}/demo/`} onClick={() => setMenuOpen(false)}>
             Get Started <ArrowRight size={17} />
           </a>
-
-          <div className="fm-mobile-menu__social" aria-hidden="true">
-            <span>in</span><span>▶</span><span>𝕏</span>
-          </div>
         </div>
       )}
 
@@ -90,14 +87,14 @@ export default function HomePage() {
           <p>Explore the live demo or open the FactoryMind app.</p>
         </div>
         <div className="fm-contact-actions">
-          <a className="fm-btn fm-btn-primary" href="/demo">Live Demo <ArrowRight size={16} /></a>
-          <a className="fm-btn fm-btn-ghost" href="/app">Open App</a>
+          <a className="fm-btn fm-btn-primary" href={`${basePath}/demo/`}>Live Demo <ArrowRight size={16} /></a>
+          <a className="fm-btn fm-btn-ghost" href={`${basePath}/app/`}>Open App</a>
         </div>
       </section>
 
       <footer className="fm-footer">
         <a href="#top" className="fm-brand" aria-label="FactoryMind home">
-          <img src="/icon.svg" alt="" />
+          <img src={`${basePath}/icon.svg`} alt="" />
           <strong>FactoryMind</strong>
         </a>
         <span>AI-POWERED MANUFACTURING</span>

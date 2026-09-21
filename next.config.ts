@@ -1,18 +1,13 @@
 import type { NextConfig } from 'next';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const nextConfig: NextConfig = {
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-          { key: 'X-Frame-Options', value: 'DENY' },
-        ],
-      },
-    ];
-  },
+  output: 'export',
+  trailingSlash: true,
+  basePath,
+  assetPrefix: basePath || undefined,
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
