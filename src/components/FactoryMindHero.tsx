@@ -28,8 +28,9 @@ const styles = `
 .fmx-btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;border-radius:9px;padding:14px 20px;font-size:15px;font-weight:700}
 .fmx-btn--primary{background:#20a9ff;color:#fff;box-shadow:0 0 26px rgba(32,169,255,.22)}
 .fmx-btn--ghost{border:1px solid #34546c;color:#fff;background:rgba(2,7,13,.5)}
-.fmx-art{min-height:450px;background-image:url("/reference/hero-factory.webp");background-size:cover;background-position:center;position:relative}
-.fmx-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#02070d 0%,rgba(2,7,13,.08) 18%,rgba(2,7,13,.02) 100%),linear-gradient(0deg,rgba(2,7,13,.34),transparent 38%)}
+.fmx-art{min-height:450px;position:relative;overflow:hidden;background:#03111b}
+.fmx-art img{display:block;width:100%;height:100%;min-height:450px;object-fit:cover;object-position:center;filter:saturate(.94) contrast(1.02)}
+.fmx-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#02070d 0%,rgba(2,7,13,.08) 18%,rgba(2,7,13,.02) 100%),linear-gradient(0deg,rgba(2,7,13,.34),transparent 38%);pointer-events:none}
 @media (max-width:1000px){
   .fmx-hero{border-radius:14px}
   .fmx-hero__nav{height:62px;padding:0 22px}
@@ -39,7 +40,8 @@ const styles = `
   .fmx-copy{padding:36px 28px 22px}
   .fmx-copy h1{font-size:clamp(48px,8vw,64px);max-width:360px}
   .fmx-copy p{font-size:16px;max-width:520px}
-  .fmx-art{min-height:380px;background-position:center}
+  .fmx-art{min-height:380px}
+  .fmx-art img{min-height:380px}
 }
 @media (max-width:650px){
   .fmx-hero{border-radius:12px}
@@ -52,7 +54,8 @@ const styles = `
   .fmx-copy p{font-size:16px;line-height:1.42}
   .fmx-actions{width:100%;gap:10px;margin-top:22px}
   .fmx-btn{flex:1;justify-content:center;padding:13px 10px;font-size:14px}
-  .fmx-art{min-height:214px;background-size:cover;background-position:46% center}
+  .fmx-art{min-height:214px}
+  .fmx-art img{min-height:214px;object-position:46% center}
 }
 `;
 
@@ -92,7 +95,9 @@ export default function FactoryMindHero({ menuOpen, onToggleMenu }: Props) {
             <a className="fmx-btn fmx-btn--ghost" href="#platform">Learn More</a>
           </div>
         </div>
-        <div className="fmx-art" role="img" aria-label="FactoryMind robotic production line" />
+        <div className="fmx-art">
+          <img src="/reference/hero-factory.webp" alt="FactoryMind robotic production line" />
+        </div>
       </div>
     </section>
   );
